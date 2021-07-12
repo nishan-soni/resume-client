@@ -8,7 +8,7 @@ class Personal extends Component {
         return (
             <div className = "name">
             <input
-             class = "form-control"
+             className = "form-control"
              type = "text" 
              aria-label="Small" 
              aria-describedby="inputGroup-sizing-sm"
@@ -19,7 +19,7 @@ class Personal extends Component {
              }
              />
              <input
-             class = "form-control"
+             className = "form-control"
              type = "text" 
              aria-label="Small" 
              aria-describedby="inputGroup-sizing-sm"
@@ -30,7 +30,7 @@ class Personal extends Component {
              }
              />
              <input
-             class = "form-control"
+             className = "form-control"
              type = "tel" 
              aria-label="Small" 
              aria-describedby="inputGroup-sizing-sm"
@@ -41,7 +41,7 @@ class Personal extends Component {
              }
              />
              <input
-             class = "form-control"
+             className = "form-control"
              type = "text" 
              aria-label="Small" 
              aria-describedby="inputGroup-sizing-sm"
