@@ -1,3 +1,28 @@
-.name {
-  width: 30vw;
+.info {
+  width: fit-content;
+  height: fit-content;
+}
+
+#element {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  background-color: #f2f5fa;
+  font-family: Calibri, sans-serif;
+  font-style: bold;
+}
+
+.info-container1 {
+  float: left;
+  margin-right: 0.8vw;
+}
+
+.info-container2 {
+  float: right;
+  margin-left: 0.8vw;
+}
+
+.info-title {
+  font-size: 3.5vh;
+  font-family: Calibri, "Trebuchet MS", sans-serif;
+  font-style: bold;
 }

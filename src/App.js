@@ -6,6 +6,9 @@ import fileDownload from 'js-file-download'
 
 class App extends Component {
   state = {
+    edu_input : [],
+    exp_input : [],
+    skill_input : [],
     template : '',
     info : {
       fname: "",
@@ -55,7 +58,11 @@ class App extends Component {
     }))
   }
 
-  onClick = () => {
+  addEdu = () => {
+    
+  }
+
+  onCreate = () => {
     axios({
       url : 'https://resume-e.herokuapp.com/create/template1',
       method: 'POST',
@@ -69,11 +76,11 @@ class App extends Component {
   }
 
   //primary colour of the app #28247c
+  //<button onClick = {this.onClick}>enter</button>
   render() {
     return (
       <React.Fragment>
         <Personal getFname = {this.getFname} getLname = {this.getLname} getPhone = {this.getPhone}   getEmail = {this.getEmail}/>
-        <button onClick = {this.onClick}>enter</button>
       </React.Fragment>
     );
   } 
