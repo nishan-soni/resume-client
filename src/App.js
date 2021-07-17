@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
 import Personal from './components/personal_info/personal';
+import Education from './components/education/education';
 import axios from 'axios'
 import fileDownload from 'js-file-download'
 
@@ -58,8 +59,8 @@ class App extends Component {
     }))
   }
 
-  addEdu = () => {
-    
+  getEdu = (text, id) => {
+
   }
 
   onCreate = () => {
@@ -81,6 +82,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Personal getFname = {this.getFname} getLname = {this.getLname} getPhone = {this.getPhone}   getEmail = {this.getEmail}/>
+        <Education />
       </React.Fragment>
     );
   } 

@@ -1,0 +1,9 @@
+.edu-title {
+  font-size: 3.5vh;
+  font-family: Calibri, "Trebuchet MS", sans-serif;
+  font-style: bold;
+}
+
+.edu-container {
+  width: fit-content;
+}

@@ -1,67 +1,76 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './personal.css'
 import React, { Component } from 'react';
+import TextField from '@material-ui/core/TextField';
 
 class Personal extends Component {
     render() { 
+        
         const {getFname, getLname, getPhone, getEmail} = this.props;
+
         return (
             <div className = "info">
                 <div className = "info-title">
                     Personal Details
                 </div>
                 <div className = "info-container1">
-                    <input
-                        className = "form-control"
-                        id = 'element'
-                        type = "text" 
-                        aria-label="Small" 
-                        aria-describedby="inputGroup-sizing-sm"
-                        placeholder = "First Name"
+                    <div style = {{marginBottom : "2vh"}}>
+                    <TextField 
+                        id= "filled-basic" 
+                        label = "First Name" 
+                        variant="filled" 
                         onChange = { (e) => {
                             getFname(e.target.value)
                             }
                         }
-                    />
-                    <input
-                        className = "form-control"
-                        id = 'element'
-                        type = "tel" 
-                        aria-label="Small" 
-                        aria-describedby="inputGroup-sizing-sm"
-                        placeholder = "Phone Number"
+                        
+                     />
+                    </div>
+
+                    <div>
+                    <TextField 
+                        id= "filled-basic" 
+                        label = "Phone Number" 
+                        variant="filled" 
                         onChange = { (e) => {
                             getPhone(e.target.value)
                             }
                         }
-                    />
+                        
+                     />
+                    </div>
+                    
+                    
                 </div>
                 
                 <div className = "info-container2">
-                    <input
-                        className = "form-control"
-                        id = 'element'
-                        type = "text" 
-                        aria-label="Small" 
-                        aria-describedby="inputGroup-sizing-sm"
-                        placeholder = "Last Name"
+                    <div style = {{marginBottom : "2vh"}}>
+                    <TextField 
+                        id= "filled-basic" 
+                        label = "Last Name" 
+                        variant="filled" 
                         onChange = { (e) => {
                             getLname(e.target.value)
                             }
                         }
-                    />
-                    <input
-                        className = "form-control"
-                        id = 'element'
-                        type = "text" 
-                        aria-label="Small" 
-                        aria-describedby="inputGroup-sizing-sm"
-                        placeholder = "Email"
+                        
+                     />
+                    </div>
+
+                    <div>
+                    <TextField 
+                        id= "filled-basic" 
+                        label = "Email" 
+                        variant="filled" 
                         onChange = { (e) => {
                             getEmail(e.target.value)
                             }
                         }
-                    />
+                        
+                     />
+                    </div>
+                
+                    
                 </div>
                
         </div>
