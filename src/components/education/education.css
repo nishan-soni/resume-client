@@ -7,3 +7,13 @@
 .edu-container {
   width: fit-content;
 }
+
+.date-from {
+  float: left;
+  margin-right: 0.7vw;
+}
+
+.date-to {
+  float: right;
+  margin-left: 0.7vw;
+}

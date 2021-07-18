@@ -3,18 +3,15 @@ import EduInput from './eduinput';
 import "./education.css"
 
 class Education extends Component {
-    state = {  }
-    poo = (text) => {
-        console.log(text)
-    }
     render() {
+        const {handleEduChange} = this.props
         return (
             <div>
                 <div className = "edu-title">
                 Education
                 </div>
                 <div>
-                    <EduInput poo = {this.poo}/>
+                    <EduInput id = "0" onEduChange = {handleEduChange}/>
                 </div>
             </div>
             

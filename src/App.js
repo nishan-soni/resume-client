@@ -59,8 +59,10 @@ class App extends Component {
     }))
   }
 
-  getEdu = (text, id) => {
-
+  handleEduChange = (edu_data, index) => {
+    const education = [...this.state.education];
+    education[index] = edu_data
+    this.setState({education})
   }
 
   onCreate = () => {
@@ -82,7 +84,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Personal getFname = {this.getFname} getLname = {this.getLname} getPhone = {this.getPhone}   getEmail = {this.getEmail}/>
-        <Education />
+        <Education handleEduChange = {this.handleEduChange} />
       </React.Fragment>
     );
   } 
