@@ -7,9 +7,7 @@ import fileDownload from 'js-file-download'
 
 class App extends Component {
   state = {
-    edu_input : [],
-    exp_input : [],
-    skill_input : [],
+    edu_inputs : [],
     template : '',
     info : {
       fname: "",
@@ -65,12 +63,26 @@ class App extends Component {
     this.setState({education})
   }
 
+  addInput = () => {
+    const edu_inputs = [...this.state.edu_inputs]
+    let id = null;
+    if(edu_inputs.length === 0) {
+      id = 0;
+    } else {
+      id = edu_inputs.length
+    }
+    
+    edu_inputs.push({id : id})
+    this.setState({edu_inputs: edu_inputs})
+}
+
   onCreate = () => {
     axios({
       url : 'https://resume-e.herokuapp.com/create/template1',
       method: 'POST',
       data : {
         info : this.state.info,
+        education : this.state.education,
       },
       responseType: 'blob'
     }).then(response => {
@@ -79,12 +91,13 @@ class App extends Component {
   }
 
   //primary colour of the app #28247c
-  //<button onClick = {this.onClick}>enter</button>
+  //<button onClick = {this.onCreate}>enter</button>
   render() {
     return (
       <React.Fragment>
         <Personal getFname = {this.getFname} getLname = {this.getLname} getPhone = {this.getPhone}   getEmail = {this.getEmail}/>
-        <Education handleEduChange = {this.handleEduChange} />
+        <Education handleEduChange = {this.handleEduChange} addInput = {this.addInput} edu_inputs = {this.state.edu_inputs} />
+        <button onClick = {this.onCreate}>enter</button>
       </React.Fragment>
     );
   } 
