@@ -46,7 +46,9 @@ const EduInput = (props) =>  {
                                 onChange = {(e) => {
                                     let university = e.target.value
                                     setUniversity(university)
-                                    onEduChange({university, degree, start, end, notes }, id)                                }} 
+                                    onEduChange({university, degree, start, end, notes }, id)
+                                    }
+                                } 
                             />
                         </div>
 
@@ -58,7 +60,9 @@ const EduInput = (props) =>  {
                                 onChange = {(e) => {
                                     let degree = e.target.value
                                     setDegree(degree)
-                                    onEduChange({university, degree, start, end, notes }, id)                                }} 
+                                    onEduChange({university, degree, start, end, notes }, id)
+                                    }
+                                } 
                             />
                         </div>
                         
@@ -76,7 +80,8 @@ const EduInput = (props) =>  {
                                                 setSelectedStartDate(date);
                                                 let start = months[date.getMonth()].toUpperCase() + " " + date.getFullYear().toString()
                                                 setStart(start)
-                                                onEduChange({university, degree, start, end, notes }, id)                                            }
+                                                onEduChange({university, degree, start, end, notes }, id)
+                                            }
                                         }
                             
                                     />
@@ -100,7 +105,8 @@ const EduInput = (props) =>  {
                                                 setSelectedEndDate(date);
                                                 let end = months[date.getMonth()].toUpperCase() + " " + date.getFullYear().toString()
                                                 setEnd(end)
-                                                onEduChange({university, degree, start, end, notes }, id)                                            }
+                                                onEduChange({university, degree, start, end, notes }, id)
+                                            }
                                         }
                             
                                     />
