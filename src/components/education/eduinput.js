@@ -4,7 +4,7 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import DateFnsUtils from '@date-io/date-fns';
-import { Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -16,7 +16,8 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const EduInput = (props) =>  {
 
-    const {id, onEduChange} = props
+    const {eduInput, onEduChange, removeInput} = props
+    const {id} = eduInput
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const [university, setUniversity] = React.useState("New Education")
@@ -130,7 +131,12 @@ const EduInput = (props) =>  {
                                             setEditorState(e)
                                             let lines = e.getCurrentContent().getPlainText().toString()
                                             let notes = lines.split('\n')
+                                            for(let i = 0; i < notes.length; i++) {
+                                                let temp = "•" + notes[i]
+                                                notes[i] = temp
+                                            }
                                             setNotes(notes)
+                                            console.log(notes)
                                             onEduChange({university, degree, start, end, notes }, id)
                                             
                                         }
@@ -140,6 +146,15 @@ const EduInput = (props) =>  {
                                     toolbar={{options: ['list']}}
                                 /> 
                             </div>
+                            <Button onClick = {() => {
+                                removeInput(id)
+                            }}
+                            color = "secondary"
+                            variant = "contained" 
+                            size = "medium"
+                            style = {{marginTop : "3vh"}}>
+                                Delete Education
+                            </Button>
                         </div>
                     </div>
                 </AccordionDetails>  

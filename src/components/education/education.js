@@ -8,7 +8,7 @@ class Education extends Component {
     
 
     render() {
-        const {handleEduChange, addInput, edu_inputs} = this.props
+        const {handleEduChange, addInput, edu_inputs, removeInput} = this.props
         return (
             <div>
                 <div className = "edu-title" style = {{marginBottom: "2vh"}}>
@@ -20,7 +20,7 @@ class Education extends Component {
                 <div style = {{marginTop : "2vh"}}>
                     {edu_inputs.map(edu_input => {
                         return(
-                            <EduInput id = {edu_input.id} onEduChange = {handleEduChange}/>
+                            <EduInput key = {edu_input.id} onEduChange = {handleEduChange} removeInput  = {removeInput} eduInput = {edu_input}/>
                         )
                         
                     })}

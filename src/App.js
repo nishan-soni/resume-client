@@ -57,24 +57,33 @@ class App extends Component {
     }))
   }
 
-  handleEduChange = (edu_data, index) => {
+  handleEduChange = (edu_data, id) => {
     const education = [...this.state.education];
-    education[index] = edu_data
+    let b = false
+    education.forEach((item, index) => {
+      if(education[index].id === id) {
+        education[index] = {...edu_data,id};
+        b = true
+      }
+    })
+    if (b === false) {
+      education.push({...edu_data, id})
+    }
     this.setState({education})
   }
 
-  addInput = () => {
+  addEduInput = () => {
     const edu_inputs = [...this.state.edu_inputs]
-    let id = null;
-    if(edu_inputs.length === 0) {
-      id = 0;
-    } else {
-      id = edu_inputs.length
-    }
-    
-    edu_inputs.push({id : id})
+    edu_inputs.push({id : Date.now()})
     this.setState({edu_inputs: edu_inputs})
-}
+  }
+
+  removeEduInput = (id) => {
+    const edu_inputs = this.state.edu_inputs.filter(c => c.id !== id)
+    const education = this.state.education.filter(item => item.id !== id)
+    this.setState({edu_inputs : edu_inputs})
+    this.setState({education : education})
+  }
 
   onCreate = () => {
     axios({
@@ -96,7 +105,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Personal getFname = {this.getFname} getLname = {this.getLname} getPhone = {this.getPhone}   getEmail = {this.getEmail}/>
-        <Education handleEduChange = {this.handleEduChange} addInput = {this.addInput} edu_inputs = {this.state.edu_inputs} />
+        <Education handleEduChange = {this.handleEduChange} addInput = {this.addEduInput} removeInput = {this.removeEduInput} edu_inputs = {this.state.edu_inputs} />
         <button onClick = {this.onCreate}>enter</button>
       </React.Fragment>
     );
