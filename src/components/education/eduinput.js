@@ -16,7 +16,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const EduInput = (props) =>  {
 
-    const {eduInput, onEduChange, removeInput} = props
+    const {eduInput, onEduChange, removeInput, updatePosition} = props
     const {id} = eduInput
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -136,7 +136,6 @@ const EduInput = (props) =>  {
                                                 notes[i] = temp
                                             }
                                             setNotes(notes)
-                                            console.log(notes)
                                             onEduChange({university, degree, start, end, notes }, id)
                                             
                                         }
@@ -147,7 +146,8 @@ const EduInput = (props) =>  {
                                 /> 
                             </div>
                             <Button onClick = {() => {
-                                removeInput(id)
+                                const newEduArray = removeInput(id)
+                                updatePosition([...newEduArray])
                             }}
                             color = "secondary"
                             variant = "contained" 

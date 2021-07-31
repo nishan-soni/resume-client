@@ -7,7 +7,6 @@ import fileDownload from 'js-file-download'
 
 class App extends Component {
   state = {
-    edu_inputs : [],
     template : '',
     info : {
       fname: "",
@@ -58,7 +57,7 @@ class App extends Component {
   }
 
   handleEduChange = (edu_data, id) => {
-    const education = [...this.state.education];
+    const education = [...this.state.education]
     let b = false
     education.forEach((item, index) => {
       if(education[index].id === id) {
@@ -70,22 +69,29 @@ class App extends Component {
       education.push({...edu_data, id})
     }
     this.setState({education})
+
   }
 
   addEduInput = () => {
-    const edu_inputs = [...this.state.edu_inputs]
-    edu_inputs.push({id : Date.now()})
-    this.setState({edu_inputs: edu_inputs})
+    const education = [...this.state.education]
+    const obj = {id : Date.now()}
+    education.push(obj)
+    this.setState({education: education})
+    return obj;
   }
 
   removeEduInput = (id) => {
-    const edu_inputs = this.state.edu_inputs.filter(c => c.id !== id)
-    const education = this.state.education.filter(item => item.id !== id)
-    this.setState({edu_inputs : edu_inputs})
+    const education = this.state.education.filter(c => c.id !== id)
     this.setState({education : education})
+    return education
+  }
+
+  updateEduArray = (newArray) => {
+    this.setState({education : [...newArray]})
   }
 
   onCreate = () => {
+    //const education = this.state.education
     axios({
       url : 'https://resume-e.herokuapp.com/create/template1',
       method: 'POST',
@@ -105,7 +111,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Personal getFname = {this.getFname} getLname = {this.getLname} getPhone = {this.getPhone}   getEmail = {this.getEmail}/>
-        <Education handleEduChange = {this.handleEduChange} addInput = {this.addEduInput} removeInput = {this.removeEduInput} edu_inputs = {this.state.edu_inputs} />
+        <Education handleEduChange = {this.handleEduChange} addInput = {this.addEduInput} removeInput = {this.removeEduInput} education = {this.state.education} updateEduArray = {this.updateEduArray} eduArray = {this.state.education}/>
         <button onClick = {this.onCreate}>enter</button>
       </React.Fragment>
     );
