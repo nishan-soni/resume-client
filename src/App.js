@@ -91,13 +91,35 @@ class App extends Component {
   }
 
   onCreate = () => {
-    //const education = this.state.education
+    let education = {}
+
+    if(this.state.education.length >0) {
+      education = {
+        title: "EDUCATION",
+        array: [...this.state.education]
+      }
+    }
+
+    const experience = {
+      title : "EXPERIENCE",
+		  array : [
+        {
+          job: "Neuroscientest",
+          location: "| Calgary Childeren's Hospital",
+          start: "SEPTEMBER 2021",
+          end : "JUNE 2025",
+          notes: ["Helped research on brains."]
+        }
+		  ]
+    }
+
     axios({
       url : 'https://resume-e.herokuapp.com/create/template1',
       method: 'POST',
       data : {
         info : this.state.info,
-        education : this.state.education,
+        education : education,
+        experience : experience
       },
       responseType: 'blob'
     }).then(response => {
