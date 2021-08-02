@@ -14,17 +14,16 @@ import {Editor} from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import "./education.css"
+import './experience.css'
 
+const ExpInput = (props) => {
 
-const EduInput = (props) =>  {
-
-    const {eduInput, onEduChange, removeInput, updatePosition} = props
-    const {id} = eduInput
+    const {expInput, onExpChange, removeInput, updatePosition} = props
+    const {id} = expInput
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const [university, setUniversity] = React.useState("New Education")
-    const [degree, setDegree] = React.useState("")
+    const [job, setJob] = React.useState("New Experience")
+    const [location, setLocation] = React.useState("")
     const [selectedStartDate, setSelectedStartDate] = React.useState(new Date());
     const [start, setStart] = React.useState(months[selectedStartDate.getMonth()].toUpperCase() + " " + selectedStartDate.getFullYear().toString())
     const [selectedEndDate, setSelectedEndDate] = React.useState(new Date());
@@ -34,24 +33,24 @@ const EduInput = (props) =>  {
     const [endTemp, setEndTemp] = React.useState(months[selectedEndDate.getMonth()].toUpperCase() + " " + selectedEndDate.getFullYear().toString())
 
     return (
-        <div className = "edu-container">
+        <div className = "exp-container">
             <Accordion>
                 <AccordionSummary>
                     <Typography>
-                        {university}
+                        {job}
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <div className = "education">
+                    <div className = "experience">
                         <div style = {{float: "left", marginRight : '0.8vw'}}>
                             <TextField 
                                 id= "filled-basic" 
-                                label = "School" 
+                                label = "Job Title" 
                                 variant="filled"
                                 onChange = {(e) => {
-                                    let university = e.target.value
-                                    setUniversity(university)
-                                    onEduChange({university, degree, start, end, notes }, id)
+                                    let job = e.target.value
+                                    setJob(job)
+                                    onExpChange({job, location, start, end, notes }, id)
                                     }
                                 } 
                             />
@@ -60,12 +59,12 @@ const EduInput = (props) =>  {
                         <div style = {{float: "right", marginRight : '4vw'}}>
                             <TextField 
                                 id= "filled-basic" 
-                                label = "Degree" 
+                                label = "Location" 
                                 variant="filled" 
                                 onChange = {(e) => {
-                                    let degree = e.target.value
-                                    setDegree(degree)
-                                    onEduChange({university, degree, start, end, notes }, id)
+                                    let location = e.target.value
+                                    setLocation(location)
+                                    onExpChange({job, location, start, end, notes }, id)
                                     }
                                 } 
                             />
@@ -85,7 +84,7 @@ const EduInput = (props) =>  {
                                                 setSelectedStartDate(date);
                                                 let start = months[date.getMonth()].toUpperCase() + " " + date.getFullYear().toString()
                                                 setStart(start)
-                                                onEduChange({university, degree, start, end, notes }, id)
+                                                onExpChange({job, location, start, end, notes }, id)
                                             }
                                         }
                             
@@ -111,7 +110,7 @@ const EduInput = (props) =>  {
                                                 let end = months[date.getMonth()].toUpperCase() + " " + date.getFullYear().toString()
                                                 setEnd(end)
                                                 setEndTemp(end)
-                                                onEduChange({university, degree, start, end, notes }, id)
+                                                onExpChange({job, location, start, end, notes }, id)
                                             }
                                         }
                             
@@ -131,16 +130,16 @@ const EduInput = (props) =>  {
                                     if (e.target.checked) {
                                         let end = "PRESENT"
                                         setEnd(end)
-                                        onEduChange({university, degree, start, end, notes }, id)
+                                        onExpChange({job, location, start, end, notes }, id)
                                     }
-                                    else if (!e.target.checked) {
+                                    else {
                                         let end = endTemp
                                         setEnd(end)
-                                        onEduChange({university, degree, start, end, notes }, id)
+                                        onExpChange({job, location, start, end, notes }, id)
                                     }
                                 }}/>
                             }
-                            label="Currently studying here"
+                            label="Currently working here"
                         />
                             
                         </div>
@@ -160,8 +159,11 @@ const EduInput = (props) =>  {
                                                 let temp = "•" + notes[i]
                                                 notes[i] = temp
                                             }
+                                            if (notes[0] === "•") {
+                                                notes = []
+                                            }
                                             setNotes(notes)
-                                            onEduChange({university, degree, start, end, notes }, id)
+                                            onExpChange({job, location, start, end, notes }, id)
                                             
                                         }
                                         
@@ -171,14 +173,14 @@ const EduInput = (props) =>  {
                                 /> 
                             </div>
                             <Button onClick = {() => {
-                                const newEduArray = removeInput(id)
-                                updatePosition([...newEduArray])
+                                const newExpArray = removeInput(id)
+                                updatePosition([...newExpArray])
                             }}
                             color = "secondary"
                             variant = "contained" 
                             size = "medium"
                             style = {{marginTop : "3vh"}}>
-                                Delete Education
+                                Delete Experience
                             </Button>
                         </div>
                     </div>
@@ -189,5 +191,5 @@ const EduInput = (props) =>  {
             
     );
 }
- 
-export default EduInput;
+
+export default ExpInput;

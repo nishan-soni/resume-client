@@ -4,6 +4,7 @@ import Personal from './components/personal_info/personal';
 import Education from './components/education/education';
 import axios from 'axios'
 import fileDownload from 'js-file-download'
+import Experience from './components/experience/experience'
 
 class App extends Component {
   state = {
@@ -90,6 +91,39 @@ class App extends Component {
     this.setState({education : [...newArray]})
   }
 
+  handleExpChange = (exp_data, id) => {
+    const experience = [...this.state.experience]
+    let b = false
+    experience.forEach((item, index) => {
+      if(experience[index].id === id) {
+        experience[index] = {...exp_data,id};
+        b = true
+      }
+    })
+    if (b === false) {
+      experience.push({...exp_data, id})
+    }
+    this.setState({experience})
+  }
+
+  addExpInput = () => {
+    const experience = [...this.state.experience]
+    const obj = {id : Date.now()}
+    experience.push(obj)
+    this.setState({experience})
+    return obj;
+  }
+
+  removeExpInput = (id) => {
+    const experience = this.state.experience.filter(c => c.id !== id)
+    this.setState({experience})
+    return experience
+  }
+
+  updateExpArray = (newArray) => {
+    this.setState({experience : [...newArray]})
+  }
+
   onCreate = () => {
     let education = {}
 
@@ -100,17 +134,13 @@ class App extends Component {
       }
     }
 
-    const experience = {
-      title : "EXPERIENCE",
-		  array : [
-        {
-          job: "Neuroscientest",
-          location: "| Calgary Childeren's Hospital",
-          start: "SEPTEMBER 2021",
-          end : "JUNE 2025",
-          notes: ["Helped research on brains."]
-        }
-		  ]
+    let experience = {}
+
+    if(this.state.experience.length > 0) {
+      experience = {
+        title: "EXPERIENCE",
+        array: [...this.state.experience]
+      }
     }
 
     axios({
@@ -133,7 +163,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <Personal getFname = {this.getFname} getLname = {this.getLname} getPhone = {this.getPhone}   getEmail = {this.getEmail}/>
-        <Education handleEduChange = {this.handleEduChange} addInput = {this.addEduInput} removeInput = {this.removeEduInput} education = {this.state.education} updateEduArray = {this.updateEduArray} eduArray = {this.state.education}/>
+        <Education handleEduChange = {this.handleEduChange} addInput = {this.addEduInput} removeInput = {this.removeEduInput} updateEduArray = {this.updateEduArray} eduArray = {this.state.education}/>
+        <Experience handleExpChange = {this.handleExpChange} addInput = {this.addExpInput} removeInput = {this.removeExpInput} updateExpArray = {this.updateExpArray} expArray = {this.state.experience}/>
         <button onClick = {this.onCreate}>enter</button>
       </React.Fragment>
     );
