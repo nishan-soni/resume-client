@@ -160,6 +160,9 @@ const EduInput = (props) =>  {
                                                 let temp = "•" + notes[i]
                                                 notes[i] = temp
                                             }
+                                            if (notes[0] === "•") {
+                                                notes = []
+                                            }
                                             setNotes(notes)
                                             onEduChange({university, degree, start, end, notes }, id)
                                             
