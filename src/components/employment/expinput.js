@@ -180,7 +180,7 @@ const ExpInput = (props) => {
                             variant = "contained" 
                             size = "medium"
                             style = {{marginTop : "3vh"}}>
-                                Delete Experience
+                                Delete Employment
                             </Button>
                         </div>
                     </div>

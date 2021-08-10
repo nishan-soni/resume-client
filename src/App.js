@@ -4,7 +4,8 @@ import Personal from './components/personal_info/personal';
 import Education from './components/education/education';
 import axios from 'axios'
 import fileDownload from 'js-file-download'
-import Experience from './components/experience/experience'
+import Experience from './components/employment/experience'
+import Skills from './components/skills/skills';
 
 class App extends Component {
   state = {
@@ -124,6 +125,39 @@ class App extends Component {
     this.setState({experience : [...newArray]})
   }
 
+  handleSkillChange = (skill_data, id) => {
+    const skills = [...this.state.skills]
+    let b = false
+    skills.forEach((item, index) => {
+      if(skills[index].id === id) {
+        skills[index] = {...skill_data,id};
+        b = true
+      }
+    })
+    if (b === false) {
+      skills.push({...skill_data, id})
+    }
+    this.setState({skills})
+  }
+
+  addSkillInput = () => {
+    const skills = [...this.state.skills]
+    const obj = {id : Date.now()}
+    skills.push(obj)
+    this.setState({skills})
+    return obj;
+  }
+
+  removeSkillInput = (id) => {
+    const skills = this.state.skills.filter(c => c.id !== id)
+    this.setState({skills})
+    return skills
+  }
+
+  updateSkillsArray = (newArray) => {
+    this.setState({skills : [...newArray]})
+  }
+
   onCreate = () => {
     let education = {}
 
@@ -138,8 +172,27 @@ class App extends Component {
 
     if(this.state.experience.length > 0) {
       experience = {
-        title: "EXPERIENCE",
+        title: "EMPLOYMENT",
         array: [...this.state.experience]
+      }
+    }
+
+    let skills = {}
+    if(this.state.skills.length > 0) {
+      let string = ""
+      let array = [...this.state.skills]
+      for(let i = 0; i <array.length; i++) {
+        if(i === array.length-1) {
+          string = string + array[i].skill
+        }
+        else {
+          string = string + array[i].skill + ", "
+        }
+
+      }
+      skills = {
+        title: "SKILLS",
+        skills: string
       }
     }
 
@@ -149,7 +202,8 @@ class App extends Component {
       data : {
         info : this.state.info,
         education : education,
-        experience : experience
+        experience : experience,
+        skills : skills
       },
       responseType: 'blob'
     }).then(response => {
@@ -163,8 +217,9 @@ class App extends Component {
     return (
       <React.Fragment>
         <Personal getFname = {this.getFname} getLname = {this.getLname} getPhone = {this.getPhone}   getEmail = {this.getEmail}/>
-        <Education handleEduChange = {this.handleEduChange} addInput = {this.addEduInput} removeInput = {this.removeEduInput} updateEduArray = {this.updateEduArray} eduArray = {this.state.education}/>
         <Experience handleExpChange = {this.handleExpChange} addInput = {this.addExpInput} removeInput = {this.removeExpInput} updateExpArray = {this.updateExpArray} expArray = {this.state.experience}/>
+        <Education handleEduChange = {this.handleEduChange} addInput = {this.addEduInput} removeInput = {this.removeEduInput} updateEduArray = {this.updateEduArray} eduArray = {this.state.education}/>
+        <Skills handleSkillChange = {this.handleSkillChange} addInput = {this.addSkillInput} removeInput = {this.removeSkillInput} updateSkillsArray = {this.updateSkillsArray} skillArray = {this.state.skills} />
         <button onClick = {this.onCreate}>enter</button>
       </React.Fragment>
     );

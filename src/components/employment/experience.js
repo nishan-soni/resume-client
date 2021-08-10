@@ -22,7 +22,7 @@ const Experience = (props) => {
     return (
         <div>
             <div className = "exp-title" style = {{marginBottom: "2vh"}}>
-                Experience
+                Employment History
             </div>
             <Button 
                 onClick = {() => {
@@ -30,7 +30,7 @@ const Experience = (props) => {
                 }} 
                 color = "primary" variant = "contained" size = "medium"
             >
-                    Add Experience
+                    Add Employment
             </Button>
             <div style = {{marginTop : "2vh"}}>
                 <DragDropContext onDragEnd = {handleDragEnd}>
@@ -50,11 +50,16 @@ const Experience = (props) => {
                                                     ref={provided.innerRef}
                                                     {...provided.draggableProps}
                                                     {...provided.dragHandleProps}
+                                                    className = "expinput"
+                                                    
                                                     
                                                 >
-                                                    <ExpInput key = {experience.id} onExpChange = {handleExpChange} removeInput  = {removeInput} expInput = {experience} updatePosition = {updatePosition}/>
-
+                                                    
+                                                <ExpInput key = {experience.id} onExpChange = {handleExpChange} removeInput  = {removeInput} expInput = {experience} updatePosition = {updatePosition}/>
+                                                 
+                                                    
                                                 </div>
+                                                
                                             )}
                                         </Draggable>
                                     )

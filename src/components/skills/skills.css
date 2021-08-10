@@ -1,0 +1,9 @@
+.skill-container {
+  width: fit-content;
+  margin-bottom: 1vh;
+}
+.skill-title {
+  font-size: 3.5vh;
+  font-family: Calibri, "Trebuchet MS", sans-serif;
+  font-style: bold;
+}
