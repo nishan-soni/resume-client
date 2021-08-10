@@ -15,6 +15,8 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import "./education.css"
+import DeleteIcon from '@material-ui/icons/Delete';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
 const EduInput = (props) =>  {
@@ -36,7 +38,9 @@ const EduInput = (props) =>  {
     return (
         <div className = "edu-container">
             <Accordion>
-                <AccordionSummary>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                >
                     <Typography>
                         {university}
                     </Typography>
@@ -47,7 +51,7 @@ const EduInput = (props) =>  {
                             <TextField 
                                 id= "filled-basic" 
                                 label = "School" 
-                                variant="filled"
+                                variant="outlined"
                                 onChange = {(e) => {
                                     let university = e.target.value
                                     setUniversity(university)
@@ -61,7 +65,7 @@ const EduInput = (props) =>  {
                             <TextField 
                                 id= "filled-basic" 
                                 label = "Degree" 
-                                variant="filled" 
+                                variant="outlined" 
                                 onChange = {(e) => {
                                     let degree = e.target.value
                                     setDegree(degree)
@@ -180,8 +184,10 @@ const EduInput = (props) =>  {
                             color = "secondary"
                             variant = "contained" 
                             size = "medium"
-                            style = {{marginTop : "3vh"}}>
-                                Delete Education
+                            style = {{marginTop : "3vh"}}
+                            startIcon={<DeleteIcon />}
+                            >
+                                Delete
                             </Button>
                         </div>
                     </div>

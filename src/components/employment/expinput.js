@@ -15,6 +15,8 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import './experience.css'
+import DeleteIcon from '@material-ui/icons/Delete';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const ExpInput = (props) => {
 
@@ -22,7 +24,7 @@ const ExpInput = (props) => {
     const {id} = expInput
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const [job, setJob] = React.useState("New Experience")
+    const [job, setJob] = React.useState("New Employment")
     const [location, setLocation] = React.useState("")
     const [selectedStartDate, setSelectedStartDate] = React.useState(new Date());
     const [start, setStart] = React.useState(months[selectedStartDate.getMonth()].toUpperCase() + " " + selectedStartDate.getFullYear().toString())
@@ -35,7 +37,9 @@ const ExpInput = (props) => {
     return (
         <div className = "exp-container">
             <Accordion>
-                <AccordionSummary>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                >
                     <Typography>
                         {job}
                     </Typography>
@@ -44,9 +48,9 @@ const ExpInput = (props) => {
                     <div className = "experience">
                         <div style = {{float: "left", marginRight : '0.8vw'}}>
                             <TextField 
-                                id= "filled-basic" 
+                                id= "outlined-basic" 
                                 label = "Job Title" 
-                                variant="filled"
+                                variant="outlined"
                                 onChange = {(e) => {
                                     let job = e.target.value
                                     setJob(job)
@@ -60,7 +64,7 @@ const ExpInput = (props) => {
                             <TextField 
                                 id= "filled-basic" 
                                 label = "Location" 
-                                variant="filled" 
+                                variant="outlined" 
                                 onChange = {(e) => {
                                     let location = e.target.value
                                     setLocation(location)
@@ -179,8 +183,10 @@ const ExpInput = (props) => {
                             color = "secondary"
                             variant = "contained" 
                             size = "medium"
-                            style = {{marginTop : "3vh"}}>
-                                Delete Employment
+                            style = {{marginTop : "3vh"}}
+                            startIcon={<DeleteIcon />}
+                            >
+                                Delete
                             </Button>
                         </div>
                     </div>

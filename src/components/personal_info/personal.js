@@ -17,7 +17,7 @@ class Personal extends Component {
                     <TextField 
                         id= "filled-basic" 
                         label = "First Name" 
-                        variant="filled" 
+                        variant="outlined" 
                         onChange = { (e) => {
                             getFname(e.target.value)
                             }
@@ -30,7 +30,7 @@ class Personal extends Component {
                     <TextField 
                         id= "filled-basic" 
                         label = "Phone Number" 
-                        variant="filled" 
+                        variant="outlined" 
                         onChange = { (e) => {
                             getPhone(e.target.value)
                             }
@@ -47,7 +47,7 @@ class Personal extends Component {
                     <TextField 
                         id= "filled-basic" 
                         label = "Last Name" 
-                        variant="filled" 
+                        variant="outlined" 
                         onChange = { (e) => {
                             getLname(e.target.value)
                             }
@@ -60,7 +60,7 @@ class Personal extends Component {
                     <TextField 
                         id= "filled-basic" 
                         label = "Email" 
-                        variant="filled" 
+                        variant="outlined" 
                         onChange = { (e) => {
                             getEmail(e.target.value)
                             }

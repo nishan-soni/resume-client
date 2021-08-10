@@ -5,6 +5,8 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import { Button, Typography } from '@material-ui/core';
 import "./skills.css"
+import DeleteIcon from '@material-ui/icons/Delete';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const SkillInput = (props) => {
     const [skill, setSkill] = React.useState("New Skill")
@@ -15,7 +17,9 @@ const SkillInput = (props) => {
     return (
         <div className = "skill-container">
             <Accordion>
-                <AccordionSummary>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                >
                     <Typography>
                         {skill}
                     </Typography>
@@ -25,7 +29,7 @@ const SkillInput = (props) => {
                         <TextField 
                             id= "filled-basic" 
                             label = "Skill" 
-                            variant="filled"
+                            variant="outlined"
                             onChange = {(e) => {
                                     let skill = e.target.value
                                     setSkill(skill)
@@ -38,14 +42,15 @@ const SkillInput = (props) => {
                     <Button
                         color = "secondary"
                         variant = "contained" 
-                        size = "medium"
-                        style = {{marginTop : "3vh"}}
+                        size = "small"
+                        style = {{marginTop : "3vh", marginLeft : "3vh"}}
                         onClick = {()=>{
                             const newExpArray = removeInput(id)
                             updatePosition([...newExpArray])
                         }}
+                        startIcon={<DeleteIcon />}
                     >
-                        Delete Skill
+                        Delete
                     </Button>  
                 </AccordionDetails>
             </Accordion>
