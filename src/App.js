@@ -1,10 +1,13 @@
 import React from 'react';
 import Creator from './Creator';
+import Home from './Home';
+import {Route} from 'react-router-dom'
 
 const App = () => {
     return (
         <div>
-            <Creator/>
+            <Route exact path = '/' component = {Home}/>
+            <Route exact path = '/creator' component = {Creator}/>
         </div>
     );
 }
