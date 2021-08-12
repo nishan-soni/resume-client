@@ -1,10 +1,16 @@
-
+import "./Home.css"
 
 const Home = () => {
     return (
-        <div>
-            Resume Creator
+        <div className = "container">
+            <div className  ="title1">
+                Resume
+            </div>
+            <div className = "title2">
+                Creator
+            </div>
         </div>
+        
     );
 }
  

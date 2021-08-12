@@ -1,0 +1,26 @@
+@font-face {
+  font-family: gidole;
+  src: url("fonts/Gidole-Regular.ttf");
+}
+
+.title1 {
+  font-family: gidole;
+  font-size: 20vw;
+  color: /*#c3a68b;*/ black;
+  position: relative;
+  right: 5vw;
+}
+
+.title2 {
+  font-family: gidole;
+  font-size: 20vw;
+  color: /*#c3a68b;*/ black;
+  position: relative;
+  left: 6vw;
+}
+
+.container {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
