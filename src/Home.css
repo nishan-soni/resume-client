@@ -4,23 +4,45 @@
 }
 
 .title1 {
+  height: min-content;
   font-family: gidole;
-  font-size: 20vw;
-  color: /*#c3a68b;*/ black;
+  font-size: 17vw;
+  color: #c3a68b;
   position: relative;
   right: 5vw;
 }
 
 .title2 {
+  height: min-content;
   font-family: gidole;
-  font-size: 20vw;
-  color: /*#c3a68b;*/ black;
+  font-size: 17vw;
+  color: #c3a68b;
   position: relative;
   left: 6vw;
+  bottom: 5vh;
 }
 
 .container {
   width: fit-content;
   height: fit-content;
   margin: auto;
+}
+
+.get-started-btn {
+  width: 11.5vw;
+  height: 8vh;
+  background: none;
+  border: solid 1px #c3a68b;
+  border-radius: 6px;
+  color: #c3a68b;
+  font-family: gidole;
+  font-size: medium;
+}
+
+.get-started-link {
+  display: block;
+  margin: 0 auto;
+  width: 11.5vw;
+  height: 8vh;
+  text-decoration: none;
 }
