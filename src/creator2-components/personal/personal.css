@@ -1,0 +1,72 @@
+@font-face {
+  font-family: gidole;
+  src: url("../../fonts/Gidole-Regular.ttf");
+}
+
+input {
+  font-family: gidole;
+  background: transparent;
+  border: transparent;
+  border-radius: 1px;
+  border-bottom: solid 3.5px #e85a4f;
+  width: 30.5vw;
+  height: 15vh;
+  font-size: 2.3vw;
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  color: #e98074;
+}
+
+input::placeholder {
+  color: #e98074;
+}
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.names {
+  display: flex;
+  padding-bottom: 5vh;
+}
+
+.contact {
+  display: flex;
+}
+
+.personal-container {
+  padding-top: 10vh;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
+
+.personal-title {
+  padding-top: 5vh;
+  color: #e85a4f;
+  width: fit-content;
+  height: fit-content;
+  display: block;
+  margin: 0 auto;
+  font-family: gidole;
+  font-size: 7vw;
+}
+
+.arrow-btn {
+  background: transparent;
+  border: none;
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+}
+
+.to-education {
+  height: fit-content;
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10vh;
+  text-decoration: none;
+}
