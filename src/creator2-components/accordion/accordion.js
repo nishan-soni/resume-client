@@ -19,6 +19,7 @@ import {EditorState} from 'draft-js';
 import {Editor} from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import DeleteIcon from '@material-ui/icons/Delete';
+import DragHandleOutlinedIcon from '@material-ui/icons/DragHandleOutlined';
 
 const AccordianStyle = makeStyles({
     root : {
@@ -97,7 +98,7 @@ const Accordion = (props) => {
     const [notes, setNotes] = React.useState([])
     const [endTemp, setEndTemp] = React.useState(months[selectedEndDate.getMonth()].toUpperCase() + " " + selectedEndDate.getFullYear().toString())
 
-    const {array, setArrayState, id} = props
+    const {array, setArrayState, id, drag} = props
 
     const handleChange = (data) => {
         const newArray = [...array]
@@ -131,7 +132,7 @@ const Accordion = (props) => {
     return (
         <div className = "accordion-container">
             <AccordionMUI className = {AccordianClasses.root}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon style = {{color : 'white'}}/>} >
+                <AccordionSummary expandIcon={<ExpandMoreIcon style = {{color : 'white'}} fontSize = 'large'/>} >
                     <button 
                         onClick = {() => {
                             removeInput(id)
@@ -143,6 +144,13 @@ const Accordion = (props) => {
                     <Typography className = {TypClasses.root}>
                         {text1}
                     </Typography>
+                    <button 
+                        className = 'drag-accordion'
+                        {...drag}
+                    >
+                        <DragHandleOutlinedIcon fontSize = 'large' />
+                    </button>
+                    
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className = 'input-container'>

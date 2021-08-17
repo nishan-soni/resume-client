@@ -47,3 +47,15 @@
 .delete-accordion:hover {
   cursor: pointer;
 }
+
+.drag-accordion {
+  position: absolute;
+  background: transparent;
+  border: none;
+  right: 0;
+  padding-right: 6vw;
+}
+
+.drag-accordion:hover {
+  cursor: pointer;
+}
