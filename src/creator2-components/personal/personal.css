@@ -1,10 +1,10 @@
 @font-face {
-  font-family: gidole;
-  src: url("../../fonts/Gidole-Regular.ttf");
+  font-family: open-sans;
+  src: url("../../fonts/OpenSans-Regular.ttf");
 }
 
 input {
-  font-family: gidole;
+  font-family: open-sans;
   background: transparent;
   border: transparent;
   border-radius: 1px;
@@ -37,36 +37,19 @@ input:focus {
 }
 
 .personal-container {
-  padding-top: 10vh;
+  padding-top: 8vh;
   width: fit-content;
   height: fit-content;
   margin: auto;
 }
 
-.personal-title {
-  padding-top: 5vh;
+#personal-title {
+  padding-top: 11vh;
   color: #e85a4f;
   width: fit-content;
   height: fit-content;
   display: block;
   margin: 0 auto;
-  font-family: gidole;
+  font-family: open-sans;
   font-size: 7vw;
-}
-
-.arrow-btn {
-  background: transparent;
-  border: none;
-  height: fit-content;
-  width: fit-content;
-  position: relative;
-}
-
-.to-education {
-  height: fit-content;
-  width: fit-content;
-  display: block;
-  margin: 0 auto;
-  margin-top: 10vh;
-  text-decoration: none;
 }

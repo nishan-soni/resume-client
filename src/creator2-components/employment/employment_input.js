@@ -1,8 +1,8 @@
-import Accordian from "../accordian/accordian";
+import Accordion from "../accordion/accordion";
 const EmploymentInput = () => {
     return (
         <div>
-            <Accordian/>
+            <Accordion/>
         </div>
     );
 }

@@ -4,31 +4,31 @@ import axios from 'axios'
 import fileDownload from 'js-file-download'
 import {Route, useLocation} from 'react-router-dom'
 import Home from './Home';
+import Education from './creator2-components/education/education';
 import Employment from './creator2-components/employment/employment';
 import NavBar from './creator2-components/navbar/navbar';
 
 export const InfoContext = createContext()
 export const EmploymentContext = createContext()
+export const EducationContext = createContext()
 
 const Creator = () => {
     const [info, setInfo] = useState({fname : '', lname: '', email : '', phone : ''})
-    const providerInfo = useMemo(()=> ({info,setInfo}), [info,setInfo])
     const [employment, setEmployment] = useState([])
-    const location = useLocation();
+    const [education, setEducation] = useState([])
 
     return (
-        <div>
-            <Route exact path = '/' component = {Home}/>
-            <div>
-              {location.pathname === '/' ? null : <NavBar/>}
-              <InfoContext.Provider value = {providerInfo}>
-                  <Route exact path = '/personal' component = {Personal}/>
-              </InfoContext.Provider>
-              <EmploymentContext.Provider value = {{employment, setEmployment}}>
-                  <Route exact path = '/employment' component = {Employment}/>
-              </EmploymentContext.Provider>
-            </div>
-            
+        <div>  
+            <NavBar/>
+            <InfoContext.Provider value = {{info,setInfo}}>
+                <Personal/>
+            </InfoContext.Provider>
+            <EducationContext.Provider value = {{education, setEducation}}>
+                <Education/>
+            </EducationContext.Provider>
+            <EmploymentContext.Provider value = {{employment, setEmployment}}>
+                <Employment/>
+            </EmploymentContext.Provider>
         </div>
     );
 }

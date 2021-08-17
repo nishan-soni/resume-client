@@ -16,7 +16,7 @@ const Home = () => {
             <div className = "title2">
                 Creator
             </div>
-            <Link to='/personal' className = 'get-started-link'>
+            <Link to='/creator' className = 'get-started-link'>
                 <motion.button
                     className = 'get-started-btn'
                     whileHover={{ scale: 1.03 }}
