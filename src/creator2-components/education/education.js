@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import './education.css'
 import Accordion from "../accordion/accordion";
 import { useContext } from "react";

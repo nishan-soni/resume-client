@@ -11,11 +11,13 @@ import NavBar from './creator2-components/navbar/navbar';
 export const InfoContext = createContext()
 export const EmploymentContext = createContext()
 export const EducationContext = createContext()
+export const SkillsContext = createContext()
 
 const Creator = () => {
     const [info, setInfo] = useState({fname : '', lname: '', email : '', phone : ''})
     const [employment, setEmployment] = useState([])
     const [education, setEducation] = useState([])
+    const [skills, setSkills] = useState([])
 
     return (
         <div>  
