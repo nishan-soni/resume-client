@@ -251,9 +251,12 @@ const Accordion = (props) => {
                                     label={<Typography className = {DateClasses.input}>Currently Studying Here.</Typography>}
                                 />
                             </div>
-                            <div style = {{height : "fit-content", width : 'fit-content', paddingTop : '2vh'}}>
+                            <div style = {{height : "fit-content", width : 'fit-content', margin : 'auto', paddingTop : '1vh'}}>
                                 <Typography className = {NotesClasses.root}>
                                     Notes
+                                </Typography>
+                                <Typography className = {CapClasses.root}>
+                                    Add each note on a new line.
                                 </Typography>
                                 <div style = {{width: "45vw", marginTop: "2vh"}}>
                                     <Editor
@@ -276,8 +279,8 @@ const Accordion = (props) => {
                                             }
                                             
                                         }
-                                        editorStyle = {{border : "1px solid white", fontFamily : "Open Sans", color : 'white'}}
-                                        toolbar={{options: ['inline', 'textAlign']}}
+                                        editorStyle = {{border : "1px solid white", fontFamily : "Open Sans", color : 'white', backgroundColor: '#F0A69E'}}
+                                        toolbar={{options: ['textAlign', 'history']}}
                                     /> 
                                 </div>
                             </div>

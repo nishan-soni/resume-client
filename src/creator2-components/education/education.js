@@ -32,9 +32,6 @@ const Education = () => {
             <div id = 'edu-title'>
                 Education.
             </div>
-            <div style = {{height : 'fit-content', width : 'fit-content', margin : 'auto', marginBottom : '2vh'}}>
-                <button className = 'add-edu-btn' onClick = {() => {addEduInput()}}>Add Education</button>
-            </div>
             <DragDropContext onDragEnd = {handleDragEnd}>
                 <Droppable droppableId = 'eduDrop'>
                     {provided => (
@@ -63,6 +60,9 @@ const Education = () => {
                     )}
                 </Droppable>
             </DragDropContext>
+            <div style = {{height : 'fit-content', width : 'fit-content', margin : 'auto', marginBottom : '2vh'}}>
+                <button className = 'add-edu-btn' onClick = {() => {addEduInput()}}>Add Education</button>
+            </div>
         </div>
     );
 }

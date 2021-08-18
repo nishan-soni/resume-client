@@ -1,12 +1,9 @@
-import React,{ useState, useMemo, createContext } from 'react';
+import React,{ useState, createContext } from 'react';
 import Personal from './creator2-components/personal/personal';
-import axios from 'axios'
-import fileDownload from 'js-file-download'
-import {Route, useLocation} from 'react-router-dom'
-import Home from './Home';
 import Education from './creator2-components/education/education';
 import Employment from './creator2-components/employment/employment';
 import NavBar from './creator2-components/navbar/navbar';
+import Skills from './creator2-components/skills/skills';
 
 export const InfoContext = createContext()
 export const EmploymentContext = createContext()
@@ -31,6 +28,9 @@ const Creator = () => {
             <EmploymentContext.Provider value = {{employment, setEmployment}}>
                 <Employment/>
             </EmploymentContext.Provider>
+            <SkillsContext.Provider  value = {{skills, setSkills}}>
+                <Skills/>
+            </SkillsContext.Provider>
         </div>
     );
 }
