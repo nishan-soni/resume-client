@@ -1,0 +1,28 @@
+@font-face {
+  font-family: open-sans;
+  src: url("../../fonts/OpenSans-Regular.ttf");
+}
+
+.tag {
+  font-family: open-sans;
+  width: fit-content;
+  height: fit-content;
+  font-size: 1.5vw;
+  background-color: #e85a4f;
+  color: white;
+  border-radius: 3px;
+}
+
+.delete-tag {
+  padding-left: 1.5vw;
+  height: fit-content;
+  width: fit-content;
+  background: transparent;
+  border: none;
+  color: #e98074;
+  font-size: 1.5vw;
+}
+
+.delete-tag:hover {
+  cursor: pointer;
+}
