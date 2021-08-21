@@ -23,7 +23,7 @@ import DragHandleOutlinedIcon from '@material-ui/icons/DragHandleOutlined';
 
 const AccordianStyle = makeStyles({
     root : {
-        background : '#e98074',
+        background : '#e85a4f',
         width : 'fit-content'
         
     }

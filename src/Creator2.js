@@ -88,7 +88,7 @@ const Creator = () => {
                 <Skills/>
             </SkillsContext.Provider>
             <button onClick = {onCreate}>
-                enter
+                Download Resume
             </button>
         </div>
     );
