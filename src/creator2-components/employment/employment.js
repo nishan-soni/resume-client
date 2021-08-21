@@ -49,7 +49,7 @@ const Employment = () => {
                                                 {...provided.draggableProps}
                                                 
                                             >
-                                                <Accordion key = {emp.id} text1 = 'New Employment' label1 = 'Job' label2 = 'Location' array = {employment} setArrayState = {setEmployment} id ={emp.id} drag = {{...provided.dragHandleProps}}/>
+                                                <Accordion key = {emp.id} text1 = 'New Employment' label1 = 'Job' label2 = 'Location' array = {employment} setArrayState = {setEmployment} id ={emp.id} drag = {{...provided.dragHandleProps}}  controlLabel = 'Currently working here.'/>
                                             </div>
                                         )}
                                     </Draggable>

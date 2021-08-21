@@ -49,7 +49,7 @@ const Education = () => {
                                                 {...provided.draggableProps}
                                                 
                                             >
-                                                <Accordion key = {edu.id} text1 = 'New Education' label1 = 'University' label2 = 'Degree' array = {education} setArrayState = {setEducation} id ={edu.id} drag = {{...provided.dragHandleProps}}/>
+                                                <Accordion key = {edu.id} text1 = 'New Education' label1 = 'University' label2 = 'Degree' array = {education} setArrayState = {setEducation} id ={edu.id} drag = {{...provided.dragHandleProps}} controlLabel = 'Currently studying here.'/>
                                             </div>
                                         )}
                                     </Draggable>

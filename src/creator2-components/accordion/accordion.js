@@ -98,7 +98,7 @@ const Accordion = (props) => {
     const [notes, setNotes] = React.useState([])
     const [endTemp, setEndTemp] = React.useState(months[selectedEndDate.getMonth()].toUpperCase() + " " + selectedEndDate.getFullYear().toString())
 
-    const {array, setArrayState, id, drag} = props
+    const {array, setArrayState, id, drag, controlLabel} = props
 
     const handleChange = (data) => {
         const newArray = [...array]
@@ -247,7 +247,7 @@ const Accordion = (props) => {
                                             }
                                         }}/>
                                     }
-                                    label={<Typography className = {DateClasses.input}>Currently Studying Here.</Typography>}
+                                    label={<Typography className = {DateClasses.input}>{controlLabel}</Typography>}
                                 />
                             </div>
                             <div style = {{height : "fit-content", width : 'fit-content', margin : 'auto', paddingTop : '1vh'}}>

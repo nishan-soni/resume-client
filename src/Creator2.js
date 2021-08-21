@@ -4,6 +4,8 @@ import Education from './creator2-components/education/education';
 import Employment from './creator2-components/employment/employment';
 import NavBar from './creator2-components/navbar/navbar';
 import Skills from './creator2-components/skills/skills';
+import axios from 'axios'
+import fileDownload from 'js-file-download'
 
 export const InfoContext = createContext()
 export const EmploymentContext = createContext()
@@ -15,6 +17,60 @@ const Creator = () => {
     const [employment, setEmployment] = useState([])
     const [education, setEducation] = useState([])
     const [skills, setSkills] = useState([])
+
+    const onCreate = () => {
+        let eduTitle = ""
+    
+        if(education.length >0) {
+          eduTitle = "EDUCATION"
+        }
+
+        let newEducation = {
+          education : {
+            title: eduTitle ,
+            array: [...education]
+          }
+        }
+    
+        let empTitle = ""
+    
+        if(employment.length > 0) {
+          empTitle = "EMPLOYMENT"
+        }
+
+        let newEmployment = {
+          employment : {
+            title: empTitle,
+            array: [...employment]
+          }
+        }
+    
+        let skillsTitle = ""
+        if(skills.length > 0) {
+          skillsTitle = "SKILLS"
+        }
+
+        let newSkills = {
+          skills : {
+            title: skillsTitle,
+            skillsArray: skills
+          }
+        }
+    
+        axios({
+          url : 'https://resume-e.herokuapp.com/create/template1',
+          method: 'POST',
+          data : {
+            info : info,
+            education : newEducation.education,
+            employment : newEmployment.employment,
+            skills : newSkills.skills
+          },
+          responseType: 'blob'
+        }).then(response => {
+          fileDownload(response.data, 'resume.pdf')
+        })
+      }
 
     return (
         <div>  
@@ -31,6 +87,9 @@ const Creator = () => {
             <SkillsContext.Provider  value = {{skills, setSkills}}>
                 <Skills/>
             </SkillsContext.Provider>
+            <button onClick = {onCreate}>
+                enter
+            </button>
         </div>
     );
 }
