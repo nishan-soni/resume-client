@@ -8,9 +8,15 @@ const Skills = () => {
     const [tempSkill, setTempSkill] = useState('')
 
     const addSkill = (name) => {
+
         let contains = false
+
+        if(name === '') {
+            contains = true
+        }
+
         skills.forEach(tag => {
-            if(tag === name) {
+            if(tag.toUpperCase() === name.toUpperCase()) {
                 contains = true
             }
         });
@@ -35,7 +41,7 @@ const Skills = () => {
                 {skills.map((item, index) => {
                     return(
                         <div style = {{paddingLeft : '0.3vw', paddingRight : '0.3vw'}}>
-                            <Tag title = {skills[index]} key ={skills[index]} deleteSkill = {removeSkill} />
+                            <Tag title = {skills[index]} key = {skills[index]} id = {skills[index]} deleteSkill = {removeSkill} />
                         </div>
                     )
                 })}
@@ -50,6 +56,12 @@ const Skills = () => {
                         e.preventDefault()
                         let skill = e.target.value
                         setTempSkill(skill) 
+                    }}
+                    onKeyDown = {(e) => {
+                        if(e.key === 'Enter') {
+                            addSkill(tempSkill)
+                            setTempSkill('')   
+                        }
                     }}
                     />
                 <button className = 'add-skill-btn' onClick = {() => {addSkill(tempSkill); setTempSkill('')}}>Add Skill</button>

@@ -1,7 +1,4 @@
 import './tag.css'
-import DeleteIcon from '@material-ui/icons/Delete';
-import BackspaceIcon from '@material-ui/icons/Backspace';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 const Tag = (props) => {
     
     const {title, deleteSkill} = props

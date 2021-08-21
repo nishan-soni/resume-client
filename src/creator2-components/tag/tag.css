@@ -7,7 +7,7 @@
   font-family: open-sans;
   width: fit-content;
   height: fit-content;
-  font-size: 1.5vw;
+  font-size: 2vw;
   background-color: #e85a4f;
   color: white;
   border-radius: 3px;
@@ -25,4 +25,5 @@
 
 .delete-tag:hover {
   cursor: pointer;
+  color: white;
 }

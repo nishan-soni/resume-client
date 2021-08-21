@@ -14,11 +14,12 @@
 }
 
 .skill-tags {
-  display: inline-flex;
+  display: flex;
   width: fit-content;
   height: fit-content;
   margin: 0 auto;
-  flex-grow: 1;
+  flex-direction: row;
+  padding-bottom: 2vh;
 }
 
 .add-skill-btn {
@@ -40,8 +41,8 @@
   border: transparent;
   border-radius: 1px;
   border-bottom: solid 3.5px #e85a4f;
-  width: 20vw;
-  height: 15vh;
+  width: 15vw;
+  height: 10vh;
   font-size: 2.3vw;
   background-color: rgba(255, 255, 255, 0.3);
   outline: none;
