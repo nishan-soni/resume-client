@@ -117,7 +117,6 @@ const Accordion = (props) => {
 
     const removeInput = (id) => {
         const newArray = array.filter(c => c.id !== id)
-        console.log(newArray)
         setArrayState(newArray)
     }
 
