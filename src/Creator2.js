@@ -7,6 +7,7 @@ import Skills from './creator2-components/skills/skills';
 import axios from 'axios'
 import fileDownload from 'js-file-download'
 import Projects from './creator2-components/projects/projects';
+import Download from './creator2-components/download/download';
 
 export const InfoContext = createContext()
 export const EmploymentContext = createContext()
@@ -93,6 +94,7 @@ const Creator = () => {
             <ProjectsContext.Provider value = {{projects, setProjects}}>
               <Projects/>
             </ProjectsContext.Provider>
+            <Download/>
             <button onClick = {onCreate}>
                 Download Resume
             </button>
