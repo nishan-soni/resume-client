@@ -8,7 +8,9 @@
 }
 
 .download-container {
-    
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
 }
 
 
