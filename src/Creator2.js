@@ -60,6 +60,19 @@ const Creator = () => {
             skillsArray: skills
           }
         }
+
+        let projTitle = ""
+    
+        if(projects.length > 0) {
+          projTitle = "PROJECTS"
+        }
+
+        let newProjects = {
+          projects : {
+            title: projTitle,
+            array: [...projects]
+          }
+        }
     
         axios({
           url : 'https://resume-e.herokuapp.com/create/template1',
@@ -68,7 +81,8 @@ const Creator = () => {
             info : info,
             education : newEducation.education,
             employment : newEmployment.employment,
-            skills : newSkills.skills
+            skills : newSkills.skills,
+            projects : newProjects.projects
           },
           responseType: 'blob'
         }).then(response => {
