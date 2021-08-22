@@ -1,0 +1,27 @@
+.projects-container {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+.add-proj-btn {
+  margin: auto;
+  width: 11.5vw;
+  height: 8vh;
+  background: none;
+  border: solid 0.8px #e98074;
+  border-radius: 6px;
+  color: #e85a4f;
+  margin-top: 2vh;
+  font-family: open-sans;
+  font-size: medium;
+}
+
+.projects-title {
+  color: #e85a4f;
+  height: fit-content;
+  width: fit-content;
+  margin: auto;
+  font-family: open-sans;
+  font-size: 7vw;
+}

@@ -12,7 +12,7 @@ const Personal = () => {
             transition={{ type: "spring", stiffness: 50 }}
         >
             <div id = "personal-title">
-                Personal Info.
+                Contact Info.
             </div>
             <div className = "personal-container">
                 <div className = "names">

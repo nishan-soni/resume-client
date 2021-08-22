@@ -6,17 +6,20 @@ import NavBar from './creator2-components/navbar/navbar';
 import Skills from './creator2-components/skills/skills';
 import axios from 'axios'
 import fileDownload from 'js-file-download'
+import Projects from './creator2-components/projects/projects';
 
 export const InfoContext = createContext()
 export const EmploymentContext = createContext()
 export const EducationContext = createContext()
 export const SkillsContext = createContext()
+export const ProjectsContext = createContext()
 
 const Creator = () => {
-    const [info, setInfo] = useState({fname : '', lname: '', email : '', phone : ''})
-    const [employment, setEmployment] = useState([])
-    const [education, setEducation] = useState([])
+    const [info, setInfo] = useState({fname : 'First Name', lname: 'Last Name', email : 'Email', phone : 'Phone Number'})
+    const [education, setEducation] = useState([{id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date'}])
+    const [employment, setEmployment] = useState([{id : Date.now() + 1, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}])
     const [skills, setSkills] = useState([])
+    const [projects, setProjects] = useState([{id : Date.now() + 2}])
 
     const onCreate = () => {
         let eduTitle = ""
@@ -87,6 +90,9 @@ const Creator = () => {
             <SkillsContext.Provider  value = {{skills, setSkills}}>
                 <Skills/>
             </SkillsContext.Provider>
+            <ProjectsContext.Provider value = {{projects, setProjects}}>
+              <Projects/>
+            </ProjectsContext.Provider>
             <button onClick = {onCreate}>
                 Download Resume
             </button>

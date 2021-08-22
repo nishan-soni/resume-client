@@ -3,6 +3,10 @@
   src: url("../../fonts/OpenSans-Regular.ttf");
 }
 
+.skills-container {
+  padding-top: 6vh;
+}
+
 .skills-title {
   color: #e85a4f;
   width: fit-content;
