@@ -16,11 +16,11 @@ export const SkillsContext = createContext()
 export const ProjectsContext = createContext()
 
 const Creator = () => {
-    const [info, setInfo] = useState({fname : 'First Name', lname: 'Last Name', email : 'Email', phone : 'Phone Number'})
+    const [info, setInfo] = useState({fname : 'First Name', lname: 'Last Name', email : 'Email', phone : ''})
     const [education, setEducation] = useState([{id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date'}])
-    const [employment, setEmployment] = useState([{id : Date.now() + 1, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}])
+    const [employment, setEmployment] = useState([{id : Date.now() + 2, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}])
     const [skills, setSkills] = useState([])
-    const [projects, setProjects] = useState([{id : Date.now() + 2}])
+    const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: '', start : 'Start Date', end : 'End Date'}])
 
     const onCreate = () => {
         let eduTitle = ""
@@ -39,7 +39,7 @@ const Creator = () => {
         let empTitle = ""
     
         if(employment.length > 0) {
-          empTitle = "EMPLOYMENT"
+          empTitle = "WORK EXPERIENCE"
         }
 
         let newEmployment = {

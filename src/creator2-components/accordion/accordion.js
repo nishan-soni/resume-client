@@ -91,14 +91,14 @@ const Accordion = (props) => {
     const [text1, setText1] = useState(props.text1)
     const [text2, setText2] = useState(props.text2)
     const [selectedStartDate, setSelectedStartDate] = React.useState(new Date());
-    const [start, setStart] = React.useState(months[selectedStartDate.getMonth()].toUpperCase() + " " + selectedStartDate.getFullYear().toString())
+    const [start, setStart] = React.useState()
     const [selectedEndDate, setSelectedEndDate] = React.useState(new Date());
-    const [end, setEnd] = React.useState(months[selectedEndDate.getMonth()].toUpperCase() + " " + selectedEndDate.getFullYear().toString())
+    const [end, setEnd] = React.useState()
     const [editorState, setEditorState] = React.useState(EditorState.createEmpty())
     const [notes, setNotes] = React.useState([])
     const [endTemp, setEndTemp] = React.useState(months[selectedEndDate.getMonth()].toUpperCase() + " " + selectedEndDate.getFullYear().toString())
 
-    const {array, setArrayState, id, drag, controlLabel} = props
+    const {array, setArrayState, id, drag, controlLabel, checkBoxFunction, dateAllow} = props
 
     const handleChange = (data) => {
         const newArray = [...array]
@@ -175,6 +175,8 @@ const Accordion = (props) => {
                                 }}
                             />
                         </div>
+                        {dateAllow ?  
+                        
                         <div style = {{display : 'block', width : 'fit-content', height : 'fit-content', margin : 'auto'}}>
                             <div className = "date-from">
                                 <ThemeProvider theme = {DateTheme}>
@@ -188,8 +190,14 @@ const Accordion = (props) => {
                                         className = {DateClasses.datePicker}
                                         onChange = {
                                             (date) => {
-                                                setSelectedStartDate(date);
-                                                let start = months[date.getMonth()].toUpperCase() + " " + date.getFullYear().toString()
+                                                
+                                                let start = ''
+                                                try {
+                                                    setSelectedStartDate(date);
+                                                    start = months[date.getMonth()].toUpperCase() + " " + date.getFullYear().toString()
+                                                } catch(e) {
+                                                    start = ''
+                                                }
                                                 setStart(start)
                                                 handleChange({text1, text2, start, end, notes }, id)
                                             }
@@ -250,7 +258,9 @@ const Accordion = (props) => {
                                     label={<Typography className = {DateClasses.input}>{controlLabel}</Typography>}
                                 />
                             </div>
-                            <div style = {{height : "fit-content", width : 'fit-content', margin : 'auto', paddingTop : '1vh'}}>
+                        </div>
+                        : null}
+                        <div style = {{height : "fit-content", width : 'fit-content', margin : 'auto', paddingTop : '1vh'}}>
                                 <Typography className = {NotesClasses.root}>
                                     Notes
                                 </Typography>
@@ -283,7 +293,6 @@ const Accordion = (props) => {
                                     /> 
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </AccordionDetails>
             </AccordionMUI>
