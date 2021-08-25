@@ -276,10 +276,10 @@ const Accordion = (props) => {
                                                 let lines = e.getCurrentContent().getPlainText().toString()
                                                 let notes = lines.split('\n')
                                                 for(let i = 0; i < notes.length; i++) {
-                                                    let temp = "•" + notes[i]
+                                                    let temp = notes[i]
                                                     notes[i] = temp
                                                 }
-                                                if (notes[0] === "•") {
+                                                if (notes[0] === "") {
                                                     notes = []
                                                 }
                                                 setNotes(notes)

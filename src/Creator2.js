@@ -57,7 +57,7 @@ const Creator = () => {
         let newSkills = {
           skills : {
             title: skillsTitle,
-            skillsArray: skills
+            array: skills
           }
         }
 
@@ -75,7 +75,7 @@ const Creator = () => {
         }
     
         axios({
-          url : 'https://resume-e.herokuapp.com/create/template1',
+          url : 'https://resume-e.herokuapp.com/create/basic',
           method: 'POST',
           data : {
             info : info,
