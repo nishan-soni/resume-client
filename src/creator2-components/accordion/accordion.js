@@ -98,7 +98,7 @@ const Accordion = (props) => {
     const [notes, setNotes] = React.useState([])
     const [endTemp, setEndTemp] = React.useState(months[selectedEndDate.getMonth()].toUpperCase() + " " + selectedEndDate.getFullYear().toString())
 
-    const {array, setArrayState, id, drag, controlLabel, checkBoxFunction, dateAllow} = props
+    const {array, setArrayState, id, drag, controlLabel, dateAllow} = props
 
     const handleChange = (data) => {
         const newArray = [...array]

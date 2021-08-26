@@ -8,6 +8,7 @@ import axios from 'axios'
 import fileDownload from 'js-file-download'
 import Projects from './creator2-components/projects/projects';
 import Download from './creator2-components/download/download';
+import Load from './creator2-components/load-popup/load';
 
 export const InfoContext = createContext()
 export const EmploymentContext = createContext()
@@ -21,12 +22,13 @@ const Creator = () => {
     const [employment, setEmployment] = useState([{id : Date.now() + 2, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}])
     const [skills, setSkills] = useState([])
     const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: '', start : 'Start Date', end : 'End Date'}])
+    const [loading, setLoading] = useState(false)
 
-    const onCreate = () => {
-        let eduTitle = ""
+    const processData = () => {
+      let eduTitle = ""
     
         if(education.length >0) {
-          eduTitle = "EDUCATION"
+          eduTitle = "Education"
         }
 
         let newEducation = {
@@ -39,7 +41,7 @@ const Creator = () => {
         let empTitle = ""
     
         if(employment.length > 0) {
-          empTitle = "WORK EXPERIENCE"
+          empTitle = "Work Experience"
         }
 
         let newEmployment = {
@@ -51,7 +53,7 @@ const Creator = () => {
     
         let skillsTitle = ""
         if(skills.length > 0) {
-          skillsTitle = "SKILLS"
+          skillsTitle = "Skills"
         }
 
         let newSkills = {
@@ -64,7 +66,7 @@ const Creator = () => {
         let projTitle = ""
     
         if(projects.length > 0) {
-          projTitle = "PROJECTS"
+          projTitle = "Projects"
         }
 
         let newProjects = {
@@ -73,22 +75,44 @@ const Creator = () => {
             array: [...projects]
           }
         }
-    
-        axios({
-          url : 'https://resume-e.herokuapp.com/create/basic',
-          method: 'POST',
-          data : {
-            info : info,
-            education : newEducation.education,
-            employment : newEmployment.employment,
-            skills : newSkills.skills,
-            projects : newProjects.projects
-          },
-          responseType: 'blob'
-        }).then(response => {
-          fileDownload(response.data, 'resume.pdf')
-        })
-      }
+
+        return [newEducation, newEmployment, newSkills, newProjects]
+    }
+
+    const handleView = () => {
+      const [newEducation, newEmployment, newSkills, newProjects] = processData()
+      axios({
+        url : 'https://resume-e.herokuapp.com/create/basic',
+        method: 'POST',
+        data : {
+          info : info,
+          education : newEducation.education,
+          employment : newEmployment.employment,
+          skills : newSkills.skills,
+          projects : newProjects.projects
+        },
+      })
+    }
+
+    const handleDownload = () => {
+      const [newEducation, newEmployment, newSkills, newProjects] = processData()
+      setLoading(true)
+      axios({
+        url : 'https://resume-e.herokuapp.com/create/basic',
+        method: 'POST',
+        data : {
+          info : info,
+          education : newEducation.education,
+          employment : newEmployment.employment,
+          skills : newSkills.skills,
+          projects : newProjects.projects
+        },
+        responseType: 'blob'
+      }).then(response => {
+        fileDownload(response.data, 'resume.pdf')
+        setLoading(false)
+      })
+    }
 
     return (
         <div>  
@@ -108,10 +132,9 @@ const Creator = () => {
             <ProjectsContext.Provider value = {{projects, setProjects}}>
               <Projects/>
             </ProjectsContext.Provider>
-            <Download/>
-            <button onClick = {onCreate}>
-                Download Resume
-            </button>
+            <Download onDownload = {handleDownload}/>
+            {loading ? <Load/> : <div/>}
+            
         </div>
     );
 }

@@ -13,5 +13,17 @@
     margin: 0 auto;
 }
 
+.save-btn {
+    width: 11.5vw;
+    height: 8vh;
+    background: none;
+    border: solid 0.8px #e98074;
+    border-radius: 6px;
+    color: #e85a4f;
+    font-family: open-sans;
+    font-size: medium;
+  }
+  
+
 
   
