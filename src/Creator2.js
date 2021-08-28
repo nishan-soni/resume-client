@@ -10,6 +10,7 @@ import Projects from './creator2-components/projects/projects';
 import Download from './creator2-components/download/download';
 import Load from './creator2-components/load-popup/load';
 
+
 export const InfoContext = createContext()
 export const EmploymentContext = createContext()
 export const EducationContext = createContext()
@@ -23,6 +24,9 @@ const Creator = () => {
     const [skills, setSkills] = useState([])
     const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: '', start : 'Start Date', end : 'End Date'}])
     const [loading, setLoading] = useState(false)
+    const [templates, setTemplates] = useState(['basic', 'template1'])
+    const [templatePointer, setTemplatePointer] = useState(0)
+
 
     const processData = () => {
       let eduTitle = ""
@@ -79,26 +83,12 @@ const Creator = () => {
         return [newEducation, newEmployment, newSkills, newProjects]
     }
 
-    const handleView = () => {
-      const [newEducation, newEmployment, newSkills, newProjects] = processData()
-      axios({
-        url : 'https://resume-e.herokuapp.com/create/basic',
-        method: 'POST',
-        data : {
-          info : info,
-          education : newEducation.education,
-          employment : newEmployment.employment,
-          skills : newSkills.skills,
-          projects : newProjects.projects
-        },
-      })
-    }
 
     const handleDownload = () => {
       const [newEducation, newEmployment, newSkills, newProjects] = processData()
       setLoading(true)
       axios({
-        url : 'https://resume-e.herokuapp.com/create/basic',
+        url : 'https://resume-e.herokuapp.com/create/' + templates[templatePointer],
         method: 'POST',
         data : {
           info : info,
@@ -132,9 +122,8 @@ const Creator = () => {
             <ProjectsContext.Provider value = {{projects, setProjects}}>
               <Projects/>
             </ProjectsContext.Provider>
-            <Download onDownload = {handleDownload}/>
+            <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates}/>
             {loading ? <Load/> : <div/>}
-            
         </div>
     );
 }
