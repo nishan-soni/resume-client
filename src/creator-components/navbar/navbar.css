@@ -39,4 +39,5 @@ ul {
 
 .link:hover {
   color: white;
+  cursor: pointer;
 }
