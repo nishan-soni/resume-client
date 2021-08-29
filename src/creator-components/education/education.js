@@ -3,6 +3,7 @@ import Accordion from "../accordion/accordion";
 import { useContext } from "react";
 import { EducationContext } from "../../Creator";
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd'
+import { motion } from 'framer-motion';
 
 
 const Education = () => {
@@ -28,7 +29,12 @@ const Education = () => {
     }
 
     return (
-        <div id = 'education-container'>
+        <motion.div 
+            id = 'education-container'
+            initial={{ y: -50 }}
+            animate={{ y: 0 }}
+            transition={{ type: "spring", stiffness: 30, }}
+        >
             <div id = 'edu-title'>
                 Education.
             </div>
@@ -63,7 +69,7 @@ const Education = () => {
             <div style = {{height : 'fit-content', width : 'fit-content', margin : 'auto', marginBottom : '2vh'}}>
                 <button className = 'add-edu-btn' onClick = {() => {addEduInput()}}>Add Education</button>
             </div>
-        </div>
+        </motion.div>
     );
 }
  
