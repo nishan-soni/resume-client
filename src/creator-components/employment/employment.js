@@ -1,44 +1,46 @@
 import { useContext } from 'react';
-import { ProjectsContext } from '../../Creator2';
-import './projects.css'
+import { EmploymentContext } from '../../Creator';
+import './employment.css'
 import Accordion from "../accordion/accordion";
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd'
 
-const Projects = () => {
-    const {projects, setProjects} = useContext(ProjectsContext)
-    const addProjInput = () => {
-        const newProjects = [...projects]
-        const obj = {id : Date.now(), text1 : 'Example Project', text2: '', start : 'Start Date', end : 'End Date'}
-        newProjects.push(obj)
-        console.log(newProjects)
-        setProjects(newProjects)
+const Employment = () => {
+
+    const {employment, setEmployment} = useContext(EmploymentContext)
+
+    const addEmpInput = () => {
+        const newEmployment = [...employment]
+        const obj = {id : Date.now() + 1, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}
+        newEmployment.push(obj)
+        console.log(newEmployment)
+        setEmployment(newEmployment)
         return obj;
     }
-    
+
     const handleDragEnd = (result) => {
         if(!result.destination) {
             return
         }
-        let items = [...projects]
+        let items = [...employment]
         let [reorderedItem] = items.splice(result.source.index, 1)
         items.splice(result.destination.index, 0, reorderedItem)
-        setProjects(items)
+        setEmployment(items)
     }
 
     return (
-        <div className = 'projects-container'>
-            <div className = 'projects-title'>
-                Projects.
+        <div id= 'employment-container'>
+            <div className = 'employment-title'>
+                Employment.
             </div>
             <DragDropContext onDragEnd = {handleDragEnd}>
-                <Droppable droppableId = 'projDrop'>
+                <Droppable droppableId = 'empDrop'>
                     {provided => (
                         <div ref = {provided.innerRef} {...provided.droppableProps}>
-                            {projects.map((proj, index) => {
+                            {employment.map((emp, index) => {
                                 return(
                                     <Draggable
-                                        key={`${proj.id}`}
-                                        draggableId={`${proj.id}`}
+                                        key={`${emp.id}`}
+                                        draggableId={`${emp.id}`}
                                         index={index}
                                     >
                                         {provided => (
@@ -47,7 +49,7 @@ const Projects = () => {
                                                 {...provided.draggableProps}
                                                 
                                             >
-                                                <Accordion key = {proj.id} text1 = 'New Project' label1 = 'Project' label2 = 'Subtitle' array = {projects} setArrayState = {setProjects} id ={proj.id} drag = {{...provided.dragHandleProps}}  controlLabel = 'Currently working on project.'/>
+                                                <Accordion key = {emp.id} text1 = 'New Employment' label1 = 'Job' label2 = 'Location' array = {employment} setArrayState = {setEmployment} id ={emp.id} drag = {{...provided.dragHandleProps}} dateAllow = {true}  controlLabel = 'Currently working here.'/>
                                             </div>
                                         )}
                                     </Draggable>
@@ -59,11 +61,10 @@ const Projects = () => {
                 </Droppable>
             </DragDropContext>
             <div style = {{height : 'fit-content', width : 'fit-content', margin : 'auto', marginBottom : '2vh'}}>
-                <button className = 'add-proj-btn' onClick = {() => {addProjInput()}}>Add Project</button>
+                <button className = 'add-emp-btn' onClick = {() => {addEmpInput()}}>Add Employment</button>
             </div>
         </div>
-    )
+    );
 }
-
-
-export default Projects;
+ 
+export default Employment;

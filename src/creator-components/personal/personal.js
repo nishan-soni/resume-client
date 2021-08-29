@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useContext } from "react";
-import { InfoContext } from "../../Creator2";
+import { InfoContext } from "../../Creator";
 import './personal.css'
 
 const Personal = () => {

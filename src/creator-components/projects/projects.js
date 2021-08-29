@@ -1,46 +1,44 @@
-import './education.css'
+import { useContext } from 'react';
+import { ProjectsContext } from '../../Creator';
+import './projects.css'
 import Accordion from "../accordion/accordion";
-import { useContext } from "react";
-import { EducationContext } from "../../Creator2";
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd'
 
-
-const Education = () => {
-    const {education, setEducation} = useContext(EducationContext)
-
-    const addEduInput = () => {
-        const newEducation = [...education]
-        const obj = {id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date'}
-        newEducation.push(obj)
-        console.log(newEducation)
-        setEducation(newEducation)
+const Projects = () => {
+    const {projects, setProjects} = useContext(ProjectsContext)
+    const addProjInput = () => {
+        const newProjects = [...projects]
+        const obj = {id : Date.now(), text1 : 'Example Project', text2: '', start : 'Start Date', end : 'End Date'}
+        newProjects.push(obj)
+        console.log(newProjects)
+        setProjects(newProjects)
         return obj;
     }
-
+    
     const handleDragEnd = (result) => {
         if(!result.destination) {
             return
         }
-        let items = [...education]
+        let items = [...projects]
         let [reorderedItem] = items.splice(result.source.index, 1)
         items.splice(result.destination.index, 0, reorderedItem)
-        setEducation(items)
+        setProjects(items)
     }
 
     return (
-        <div id = 'education-container'>
-            <div id = 'edu-title'>
-                Education.
+        <div className = 'projects-container'>
+            <div className = 'projects-title'>
+                Projects.
             </div>
             <DragDropContext onDragEnd = {handleDragEnd}>
-                <Droppable droppableId = 'eduDrop'>
+                <Droppable droppableId = 'projDrop'>
                     {provided => (
                         <div ref = {provided.innerRef} {...provided.droppableProps}>
-                            {education.map((edu, index) => {
+                            {projects.map((proj, index) => {
                                 return(
                                     <Draggable
-                                        key={`${edu.id}`}
-                                        draggableId={`${edu.id}`}
+                                        key={`${proj.id}`}
+                                        draggableId={`${proj.id}`}
                                         index={index}
                                     >
                                         {provided => (
@@ -49,7 +47,7 @@ const Education = () => {
                                                 {...provided.draggableProps}
                                                 
                                             >
-                                                <Accordion key = {edu.id} text1 = 'New Education' label1 = 'Degree' label2 = 'University' array = {education} setArrayState = {setEducation} id ={edu.id} drag = {{...provided.dragHandleProps}} dateAllow = {true} controlLabel = 'Currently studying here.'/>
+                                                <Accordion key = {proj.id} text1 = 'New Project' label1 = 'Project' label2 = 'Subtitle' array = {projects} setArrayState = {setProjects} id ={proj.id} drag = {{...provided.dragHandleProps}}  controlLabel = 'Currently working on project.'/>
                                             </div>
                                         )}
                                     </Draggable>
@@ -61,10 +59,11 @@ const Education = () => {
                 </Droppable>
             </DragDropContext>
             <div style = {{height : 'fit-content', width : 'fit-content', margin : 'auto', marginBottom : '2vh'}}>
-                <button className = 'add-edu-btn' onClick = {() => {addEduInput()}}>Add Education</button>
+                <button className = 'add-proj-btn' onClick = {() => {addProjInput()}}>Add Project</button>
             </div>
         </div>
-    );
+    )
 }
- 
-export default Education;
+
+
+export default Projects;

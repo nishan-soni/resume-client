@@ -1,74 +1,70 @@
-import React from 'react';
-import { Button } from '@material-ui/core';
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd'
-import SkillInput from './skillinput';
-import "./skills.css"
+import './skills.css'
+import Tag from '../tag/tag';
+import { useContext, useState } from 'react';
+import { SkillsContext } from '../../Creator';
+const Skills = () => {
 
-const Skills = (props) => {
-    const {handleSkillChange, addInput,removeInput, updateSkillsArray, skillArray} = props
-    const [position, updatePosition] = React.useState([])
+    const {skills, setSkills} = useContext(SkillsContext)
+    const [tempSkill, setTempSkill] = useState('')
 
-    const handleDragEnd = (result) => {
-        if(!result.destination) {
-            return
+    const addSkill = (name) => {
+
+        let contains = false
+
+        if(name === '') {
+            contains = true
         }
-        let items = [...skillArray]
-        let [reorderedItem] = items.splice(result.source.index, 1)
-        items.splice(result.destination.index, 0, reorderedItem)
-        updatePosition([...items])
-        updateSkillsArray([...items])
+
+        skills.forEach(tag => {
+            if(tag.toUpperCase() === name.toUpperCase()) {
+                contains = true
+            }
+        });
+        if(contains === false) {
+            let newSkills = [...skills]
+            newSkills.push(name)
+            setSkills(newSkills)
+        }
+    }
+
+    const removeSkill = (name) => {
+        const newArray = skills.filter(c => c !== name)
+        setSkills(newArray)
     }
 
     return (
-        <div>
-            <div className = "skill-title" style = {{marginBottom: "2vh"}}>
-                Skills
+        <div id = 'skills-container'>
+            <div className = 'skills-title'>
+                Skills.
             </div>
-            <Button 
-                onClick = {() => {
-                    updatePosition([...position,addInput()])
-                }} 
-                color = "primary" variant = "contained" size = "medium"
-            >
-                    Add Skills
-            </Button>
-            <div style = {{marginTop : "2vh"}}>
-                <DragDropContext onDragEnd = {handleDragEnd}>
-                    <Droppable droppableId = "skilldrop">
-                        {provided => (
-                            <div ref = {provided.innerRef} {...provided.droppableProps}>
-                                {position.map((skill, index) => {
-                                    return(
-                                        <Draggable 
-                                            key={`${skill.id}`}
-                                            draggableId={`${skill.id}`}
-                                            index={index}
-                                        >
-                                            {provided => (
-                                                <div 
-                                                    style = {{width : "fit-content", height : "fit-content", marginTop : "3vh", marginBottom: "3vh"}}
-                                                    ref={provided.innerRef}
-                                                    {...provided.draggableProps}
-                                                    {...provided.dragHandleProps}
-                                                    className = "skillinput"
-                                                    
-                                                    
-                                                >
-                                                    <SkillInput key = {skill.id} onSkillChange = {handleSkillChange} removeInput = {removeInput} skillInput = {skill} updatePosition = {updatePosition}/>  
-                                                </div>
-                                                
-                                            )}
-                                        </Draggable>
-                                    )
-                                })}
-                                    {provided.placeholder}
-                            </div>
-                        )}
-
-                    </Droppable>
-
-                </DragDropContext>
-                    
+            <div className = 'skill-tags'>
+                {skills.map((item, index) => {
+                    return(
+                        <div style = {{paddingLeft : '0.3vw', paddingRight : '0.3vw'}}>
+                            <Tag title = {skills[index]} key = {skills[index]} id = {skills[index]} deleteSkill = {removeSkill} />
+                        </div>
+                    )
+                })}
+            </div>
+            <div style = {{height : 'fit-content', width : 'fit-content', margin : 'auto', marginBottom : '2vh'}}>
+                <input
+                    type="text" 
+                    placeholder = "Skill"
+                    className = 'skill-input'
+                    value = {tempSkill} 
+                    onChange = {(e) => {
+                        e.preventDefault()
+                        let skill = e.target.value
+                        setTempSkill(skill) 
+                    }}
+                    onKeyDown = {(e) => {
+                        if(e.key === 'Enter') {
+                            addSkill(tempSkill)
+                            setTempSkill('')   
+                        }
+                    }}
+                    />
+                <button className = 'add-skill-btn' onClick = {() => {addSkill(tempSkill); setTempSkill('')}}>Add Skill</button>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import {Route} from 'react-router-dom'
 import Home from './Home';
-import Creator from './Creator2';
+import Creator from './Creator';
 
 const App = () => {
     //{location.pathname === '/' ? null : <NavBar/>}

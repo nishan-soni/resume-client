@@ -1,5 +1,5 @@
 import './download.css'
-import Preview from '../../creator2-components/preview/preview';
+import Preview from '../preview/preview';
 
 const Download = (props) => {
     const {onDownload, pointer, updatePointer, templates} = props
