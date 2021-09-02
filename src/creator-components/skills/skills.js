@@ -2,6 +2,7 @@ import './skills.css'
 import Tag from '../tag/tag';
 import { useContext, useState } from 'react';
 import { SkillsContext } from '../../Creator';
+import Subtitle from '../subtitle/subtitle';
 const Skills = () => {
 
     const {skills, setSkills} = useContext(SkillsContext)
@@ -37,10 +38,11 @@ const Skills = () => {
             <div className = 'skills-title'>
                 Skills.
             </div>
+            <Subtitle subtitle = "List 5 to 6 relevant skills."/>
             <div className = 'skill-tags'>
                 {skills.map((item, index) => {
                     return(
-                        <div style = {{paddingLeft : '0.3vw', paddingRight : '0.3vw'}}>
+                        <div id = {skills[index]}  style = {{paddingLeft : '0.3vw', paddingRight : '0.3vw', marginTop : '1vh'}}>
                             <Tag title = {skills[index]} key = {skills[index]} id = {skills[index]} deleteSkill = {removeSkill} />
                         </div>
                     )

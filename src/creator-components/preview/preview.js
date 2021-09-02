@@ -1,13 +1,14 @@
 import './preview.css'
 import { useState } from 'react'
-import Basic from './images/basic.png'
-import Template1 from './images/template1.png'
+import Basic from '../images/basic.png'
+import Template1 from '../images/template1.png'
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import { motion } from 'framer-motion';
 
 const Preview = (props) => {
     const [images, setImages] = useState([Basic, Template1])
-    const {pointer, updatePointer, templates} = props
+    const {pointer, updatePointer, templates, setSelect} = props
 
     const buttonLeft = () => {
         let newPointer = pointer
@@ -29,14 +30,14 @@ const Preview = (props) => {
 
     return (
         <div>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap = {{scale : 0.95}} style = {{width : 'fit-content', height : 'fit-content', margin: 'auto'}}>
+                <img src = {images[pointer]} style = {{width : 'auto', height : '50vh', border : 'solid 1.5px #e85a4f'}} onClick = {()=> {setSelect(true)}}/>
+            </motion.div>
             <div style = {{width : 'fit-content', height : 'fit-content', margin: 'auto'}}>
-                <img src = {images[pointer]} style = {{width : 'auto', height : '45vh', border : 'solid 1.5px #e85a4f'}}/>
-            </div>
-            <div style = {{width : 'fit-content', height : 'fit-content', margin: 'auto'}}>
-                <button style = {{float : 'left', marginRight : '0.5vw', background: 'none', border : 'none'}} onClick = {buttonLeft}>
+                <button id = "left-btn" style = {{float : 'left', marginRight : '0.5vw', background: 'none', border : 'none'}} onClick = {buttonLeft}>
                     <ArrowLeftIcon fontSize = 'large' style = {{fill : 'red'}}/>
                 </button>
-                <button style = {{float : 'right', marginLeft : '0.5vw', background: 'none', border : 'none'}} onClick = {buttonRight}>
+                <button id = "right-btn" style = {{float : 'right', marginLeft : '0.5vw', background: 'none', border : 'none'}} onClick = {buttonRight}>
                     <ArrowRightIcon fontSize = 'large' style = {{fill : 'red'}}/>
                 </button>
             </div>

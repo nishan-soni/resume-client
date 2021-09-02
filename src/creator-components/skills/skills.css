@@ -22,13 +22,14 @@
   width: fit-content;
   height: fit-content;
   margin: 0 auto;
-  flex-direction: row;
+  flex-flow: row wrap;
   padding-bottom: 2vh;
+  max-width: 70vw;
 }
 
 .add-skill-btn {
   margin: auto;
-  width: 11.5vw;
+  width: auto;
   height: 8vh;
   margin-top: 2vh;
   background: none;

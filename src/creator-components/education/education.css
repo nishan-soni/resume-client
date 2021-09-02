@@ -5,11 +5,13 @@
 
 #education-container {
   padding-top: 6vh;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
 }
 
 #edu-title {
   color: #e85a4f;
-  height: fit-content;
   width: fit-content;
   margin: auto;
   font-family: open-sans;
@@ -18,7 +20,7 @@
 
 .add-edu-btn {
   margin: auto;
-  width: 11.5vw;
+  width: auto;
   height: 8vh;
   margin-top: 2vh;
   background: none;
@@ -27,4 +29,8 @@
   color: #e85a4f;
   font-family: open-sans;
   font-size: medium;
+}
+
+.add-edu-btn:hover {
+  cursor: pointer;
 }

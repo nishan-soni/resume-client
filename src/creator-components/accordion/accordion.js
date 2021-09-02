@@ -31,7 +31,7 @@ const AccordianStyle = makeStyles({
 const TypStyle = makeStyles({
     root : {
         fontFamily : [ 'Open Sans' ],
-        fontSize : '2vw',
+        fontSize : '1.6rem',
         color : 'white'
     }
 })
@@ -40,7 +40,7 @@ const CapStyle = makeStyles({
     root : {
         fontFamily : [ 'Open Sans' ],
         color : 'white',
-        fontSize : '2vh'
+        fontSize : '0.8rem'
     }
 })
 
@@ -48,7 +48,7 @@ const NotesStyle = makeStyles({
     root : {
         fontFamily : [ 'Open Sans' ],
         color : 'white',
-        fontSize : '1.8vw'
+        fontSize : '1.3rem'
     }
 })
 
@@ -78,7 +78,7 @@ const DateTheme = createTheme({
 const DateStyle = makeStyles({
     input : {
         fontFamily : [ 'Open Sans' ],
-        fontSize : '3vh',
+        fontSize : '1.2rem',
         color: 'white',
     }
 })
@@ -152,6 +152,8 @@ const Accordion = (props) => {
                     
                 </AccordionSummary>
                 <AccordionDetails>
+                    <div>
+
                     <div className = 'input-container'>
                         <div style = {{float : 'left'}}>
                             <input 
@@ -175,6 +177,7 @@ const Accordion = (props) => {
                                 }}
                             />
                         </div>
+                    </div>
                         {dateAllow ?  
                         
                         <div style = {{display : 'block', width : 'fit-content', height : 'fit-content', margin : 'auto'}}>

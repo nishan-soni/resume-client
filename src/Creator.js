@@ -9,6 +9,7 @@ import fileDownload from 'js-file-download'
 import Projects from './creator-components/projects/projects';
 import Download from './creator-components/download/download';
 import Load from './creator-components/load-popup/load';
+import TemplateSelect from './creator-components/template-select/TemplateSelect';
 
 
 export const InfoContext = createContext()
@@ -26,6 +27,7 @@ const Creator = () => {
     const [loading, setLoading] = useState(false)
     const [templates, setTemplates] = useState(['basic', 'template1'])
     const [templatePointer, setTemplatePointer] = useState(0)
+    const [templateSelect, setTemplateSelect] = useState(false)
 
 
     const processData = () => {
@@ -123,8 +125,9 @@ const Creator = () => {
             <ProjectsContext.Provider value = {{projects, setProjects}}>
               <Projects/>
             </ProjectsContext.Provider>
-            <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates}/>
-            {loading ? <Load/> : <div/>}
+            <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates} setSelect = {setTemplateSelect}/>
+            {loading ? <Load/> : null}
+            {templateSelect ? <TemplateSelect setSelect = {setTemplateSelect} templates = {templates} updatePointer = {setTemplatePointer}/> : null}
         </div>
     );
 }

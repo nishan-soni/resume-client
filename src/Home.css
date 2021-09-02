@@ -29,7 +29,7 @@
 }
 
 .get-started-btn {
-  width: 11.5vw;
+  width: auto;
   height: 8vh;
   background: none;
   border: solid 0.8px #e98074;
@@ -42,7 +42,7 @@
 .get-started-link {
   display: block;
   margin: 0 auto;
-  width: 11.5vw;
-  height: 8vh;
+  width: auto;
+  height: auto;
   text-decoration: none;
 }

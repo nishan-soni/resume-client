@@ -1,0 +1,13 @@
+@font-face {
+    font-family: open-sans;
+    src: url("../../fonts/OpenSans-Regular.ttf");
+}
+
+.subtitle {
+    font-family: open-sans;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+    color: #e98074;
+    font-size: 2vw;
+}

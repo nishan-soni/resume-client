@@ -16,16 +16,19 @@ const Home = () => {
             <div className = "title2">
                 Creator
             </div>
-            <Link to='/creator' className = 'get-started-link'>
-                <motion.button
-                    className = 'get-started-btn'
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.9 }}
-                    
-                >
-                    Get Started
-                </motion.button>
-            </Link>
+            <div style = {{width : 'fit-content', margin : 'auto'}}>
+                <Link to='/creator' className = 'get-started-link'>
+                    <motion.button
+                        className = 'get-started-btn'
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.9 }}
+                        
+                    >
+                        Get Started
+                    </motion.button>
+                </Link>
+            </div>
+           
         </motion.div>
         
     );

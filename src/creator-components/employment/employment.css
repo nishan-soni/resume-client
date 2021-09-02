@@ -7,7 +7,6 @@
   color: #e85a4f;
   width: fit-content;
   height: fit-content;
-  display: block;
   margin: 0 auto;
   font-family: open-sans;
   font-size: 7vw;
@@ -15,13 +14,14 @@
 
 .employment-container {
   width: fit-content;
-  margin: 0 auto;
+  height: fit-content;
+  margin: auto;
   padding-top: 6vh;
 }
 
 .add-emp-btn {
   margin: auto;
-  width: 11.5vw;
+  width: auto;
   height: 8vh;
   background: none;
   border: solid 0.8px #e98074;
@@ -30,4 +30,8 @@
   margin-top: 2vh;
   font-family: open-sans;
   font-size: medium;
+}
+
+.add-emp-btn:hover {
+  cursor: pointer;
 }

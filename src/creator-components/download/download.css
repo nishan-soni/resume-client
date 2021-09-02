@@ -14,7 +14,7 @@
 }
 
 .save-btn {
-    width: 11.5vw;
+    width: auto;
     height: 8vh;
     background: none;
     border: solid 0.8px #e98074;
@@ -22,6 +22,10 @@
     color: #e85a4f;
     font-family: open-sans;
     font-size: medium;
+  }
+
+  .save-btn:hover {
+    cursor: pointer;
   }
   
 
