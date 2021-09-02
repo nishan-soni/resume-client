@@ -37,7 +37,7 @@
 .delete-accordion {
   background: transparent;
   border: none;
-  padding-right: 3em;
+  margin-right: 3em;
 }
 
 .delete-accordion:hover {
@@ -49,7 +49,7 @@
   background: transparent;
   border: none;
   right: 0;
-  padding-right: 6em;
+  margin-right: 6em;
 }
 
 .drag-accordion:hover {

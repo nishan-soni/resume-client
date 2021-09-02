@@ -10,7 +10,7 @@ import Projects from './creator-components/projects/projects';
 import Download from './creator-components/download/download';
 import Load from './creator-components/load-popup/load';
 import TemplateSelect from './creator-components/template-select/TemplateSelect';
-
+import './Creator.css'
 
 export const InfoContext = createContext()
 export const EmploymentContext = createContext()
@@ -25,7 +25,7 @@ const Creator = () => {
     const [skills, setSkills] = useState([])
     const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: '', start : 'Start Date', end : 'End Date'}])
     const [loading, setLoading] = useState(false)
-    const [templates, setTemplates] = useState(['basic', 'template1'])
+    const templates = ['basic', 'template1']
     const [templatePointer, setTemplatePointer] = useState(0)
     const [templateSelect, setTemplateSelect] = useState(false)
 
@@ -128,6 +128,9 @@ const Creator = () => {
             <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates} setSelect = {setTemplateSelect}/>
             {loading ? <Load/> : null}
             {templateSelect ? <TemplateSelect setSelect = {setTemplateSelect} templates = {templates} updatePointer = {setTemplatePointer}/> : null}
+            <div className = 'landscape-notification'>
+              Please rotate your device.
+            </div>
         </div>
     );
 }

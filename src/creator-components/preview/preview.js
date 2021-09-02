@@ -1,5 +1,4 @@
 import './preview.css'
-import { useState } from 'react'
 import Basic from '../images/basic.png'
 import Template1 from '../images/template1.png'
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
@@ -7,7 +6,7 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { motion } from 'framer-motion';
 
 const Preview = (props) => {
-    const [images, setImages] = useState([Basic, Template1])
+    const images = [Basic, Template1]
     const {pointer, updatePointer, templates, setSelect} = props
 
     const buttonLeft = () => {
@@ -31,7 +30,7 @@ const Preview = (props) => {
     return (
         <div>
             <motion.div whileHover={{ scale: 1.03 }} whileTap = {{scale : 0.95}} style = {{width : 'fit-content', height : 'fit-content', margin: 'auto'}}>
-                <img src = {images[pointer]} style = {{width : 'auto', height : '50vh', border : 'solid 1.5px #e85a4f'}} onClick = {()=> {setSelect(true)}}/>
+                <img src = {images[pointer]} style = {{width : 'auto', height : '50vh', border : 'solid 1.5px #e85a4f'}} onClick = {()=> {setSelect(true)}} alt = ""/>
             </motion.div>
             <div style = {{width : 'fit-content', height : 'fit-content', margin: 'auto'}}>
                 <button id = "left-btn" style = {{float : 'left', marginRight : '0.5vw', background: 'none', border : 'none'}} onClick = {buttonLeft}>

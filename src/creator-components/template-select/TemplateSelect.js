@@ -6,7 +6,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 const TemplateSelect = (props) => {
 
-    const {setSelect, templates, updatePointer} = props
+    const {setSelect, updatePointer} = props
 
     return (
         <motion.div initial = {{opacity : 0}} animate = {{opacity : 1}} transition = {{duration : 0.3}} className = 'template-container'>
