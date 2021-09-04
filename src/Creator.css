@@ -15,8 +15,8 @@
         left: 50%;
         transform: translate(-50%,-50%);
         background-color: #e85a4f;
-        text-align: center;
-        line-height: 50vh;
+        align-items: center;
+        justify-content: center;
         font-family: open-sans;
         color: white;
         font-size: 1.3em;

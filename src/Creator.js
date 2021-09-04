@@ -11,6 +11,8 @@ import Download from './creator-components/download/download';
 import Load from './creator-components/load-popup/load';
 import TemplateSelect from './creator-components/template-select/TemplateSelect';
 import './Creator.css'
+import RotateDevice from './creator-components/images/rotate-device.png'
+import { motion } from 'framer-motion';
 
 export const InfoContext = createContext()
 export const EmploymentContext = createContext()
@@ -128,9 +130,14 @@ const Creator = () => {
             <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates} setSelect = {setTemplateSelect}/>
             {loading ? <Load/> : null}
             {templateSelect ? <TemplateSelect setSelect = {setTemplateSelect} templates = {templates} updatePointer = {setTemplatePointer}/> : null}
-            <div className = 'landscape-notification'>
-              Please rotate your device.
-            </div>
+            <motion.div className = 'landscape-notification' initial = {{opacity : 0}} animate = {{opacity : 1}} transition = {{duration : 0.4}}>
+              <div style = {{textAlign : 'center'}}>
+                  Please rotate your device for a better experience.
+              </div>
+              <div style = {{paddingTop : '4vh'}}>
+                <img src = {RotateDevice} width = '80vw' alt = ""/>
+              </div>
+            </motion.div>
         </div>
     );
 }
