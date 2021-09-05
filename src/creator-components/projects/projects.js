@@ -10,7 +10,6 @@ const Projects = () => {
         const newProjects = [...projects]
         const obj = {id : Date.now(), text1 : 'Example Project', text2: '', start : 'Start Date', end : 'End Date'}
         newProjects.push(obj)
-        console.log(newProjects)
         setProjects(newProjects)
         return obj;
     }

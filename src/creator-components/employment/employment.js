@@ -12,7 +12,6 @@ const Employment = () => {
         const newEmployment = [...employment]
         const obj = {id : Date.now() + 1, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}
         newEmployment.push(obj)
-        console.log(newEmployment)
         setEmployment(newEmployment)
         return obj;
     }

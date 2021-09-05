@@ -13,7 +13,6 @@ const Education = () => {
         const newEducation = [...education]
         const obj = {id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date'}
         newEducation.push(obj)
-        console.log(newEducation)
         setEducation(newEducation)
         return obj;
     }
