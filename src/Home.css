@@ -4,28 +4,24 @@
 }
 
 .title1 {
-  height: min-content;
   font-family: open-sans;
   font-size: 15vw;
   color: /*#c3a68b*/ #e85a4f;
   position: relative;
-  right: 5vw;
 }
 
 .title2 {
-  height: min-content;
   font-family: open-sans;
   font-size: 15vw;
   color: #e85a4f;
   position: relative;
-  left: 6vw;
-  bottom: 5vh;
 }
 
 .home-container {
-  width: fit-content;
-  height: fit-content;
-  margin: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .get-started-btn {
