@@ -25,7 +25,7 @@ const Creator = () => {
     const [education, setEducation] = useState([{id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date'}])
     const [employment, setEmployment] = useState([{id : Date.now() + 2, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}])
     const [skills, setSkills] = useState([])
-    const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: '', start : 'Start Date', end : 'End Date'}])
+    const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: "", start : 'Start Date', end : 'End Date'}])
     const [loading, setLoading] = useState(false)
     const templates = ['basic', 'template1']
     const [templatePointer, setTemplatePointer] = useState(0)

@@ -5,6 +5,7 @@ import './personal.css'
 
 const Personal = () => {
     const {info, setInfo} = useContext(InfoContext)
+
     return (
         <motion.div
             initial={{ y: -50 }}
@@ -24,6 +25,7 @@ const Personal = () => {
                             let infoTemp = {...info}
                             infoTemp.fname = e.target.value
                             setInfo(infoTemp)
+                            
                         }}
                     />
                     <input 
