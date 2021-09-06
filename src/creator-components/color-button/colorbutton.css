@@ -1,0 +1,12 @@
+.color-btn {
+    margin: 1vh;
+    background: transparent;
+    border-radius: 2vh;
+    height: 4vh;
+    width: 4vh;
+    border: none;
+}
+
+.color-btn:hover {
+    cursor: pointer;
+}

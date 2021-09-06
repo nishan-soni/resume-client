@@ -30,6 +30,7 @@ const Creator = () => {
     const templates = ['basic', 'template1']
     const [templatePointer, setTemplatePointer] = useState(0)
     const [templateSelect, setTemplateSelect] = useState(false)
+    const [color, setColor] = useState("")
 
 
     const processData = () => {
@@ -100,7 +101,8 @@ const Creator = () => {
           education : newEducation.education,
           employment : newEmployment.employment,
           skills : newSkills.skills,
-          projects : newProjects.projects
+          projects : newProjects.projects,
+          color : color
         },
         responseType: 'blob'
       }).then(response => {
@@ -127,9 +129,9 @@ const Creator = () => {
             <ProjectsContext.Provider value = {{projects, setProjects}}>
               <Projects/>
             </ProjectsContext.Provider>
-            <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates} setSelect = {setTemplateSelect}/>
+            <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates} setSelect = {setTemplateSelect} setColor = {setColor}/>
             {loading ? <Load/> : null}
-            {templateSelect ? <TemplateSelect setSelect = {setTemplateSelect} templates = {templates} updatePointer = {setTemplatePointer}/> : null}
+            {templateSelect ? <TemplateSelect setSelect = {setTemplateSelect} templates = {templates} updatePointer = {setTemplatePointer} setColor = {setColor}/> : null}
             <motion.div className = 'landscape-notification' initial = {{opacity : 0}} animate = {{opacity : 1}} transition = {{duration : 0.4}}>
               <div style = {{textAlign : 'center'}}>
                   Please rotate your device for a better experience.
