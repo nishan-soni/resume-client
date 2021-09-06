@@ -1,9 +1,9 @@
 .color-btn {
     margin: 1vh;
     background: transparent;
-    border-radius: 2vh;
-    height: 4vh;
-    width: 4vh;
+    border-radius: 0.9rem;
+    height: 1.8rem;
+    width: 1.8rem;
     border: none;
 }
 
