@@ -8,7 +8,7 @@ const Projects = () => {
     const {projects, setProjects} = useContext(ProjectsContext)
     const addProjInput = () => {
         const newProjects = [...projects]
-        const obj = {id : Date.now(), text1 : 'Example Project', text2: '', start : 'Start Date', end : 'End Date'}
+        const obj = {id : Date.now(), text1 : 'Example Project', text2: "", start : 'Start Date', end : 'End Date'}
         newProjects.push(obj)
         setProjects(newProjects)
         return obj;
