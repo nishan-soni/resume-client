@@ -25,7 +25,7 @@ const AccordianStyle = makeStyles({
     root : {
         background : '#e85a4f',
         width : 'fit-content'
-        
+
     }
 })
 const TypStyle = makeStyles({
@@ -138,7 +138,7 @@ const Accordion = (props) => {
                         }}
                         className = 'delete-accordion'
                     >
-                        <DeleteIcon/> 
+                        <DeleteIcon style = {{color : 'white'}}/> 
                     </button>
                     <Typography className = {TypClasses.root}>
                         {text1}
@@ -147,7 +147,7 @@ const Accordion = (props) => {
                         className = 'drag-accordion'
                         {...drag}
                     >
-                        <DragHandleOutlinedIcon fontSize = 'large' />
+                        <DragHandleOutlinedIcon fontSize = 'large' style = {{color : 'white'}} />
                     </button>
                     
                 </AccordionSummary>
