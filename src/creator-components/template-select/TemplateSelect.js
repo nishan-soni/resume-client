@@ -20,8 +20,8 @@ const TemplateSelect = (props) => {
             </div>
             <div className = 'templates'>
                 <div style = {{width : 'fit-content', margin :'auto'}}>
-                    <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Basic} onClick= {() => {setSelect(false); updatePointer(0); setColor("")}}/>
-                    <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Template1} onClick= {() => {setSelect(false); updatePointer(1); setColor("")}}/>
+                    <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Basic} onClick= {() => {setSelect(false); updatePointer(0); setColor("#e85a4f")}}/>
+                    <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Template1} onClick= {() => {setSelect(false); updatePointer(1); setColor("lightgrey")}}/>
 
                 </div>
             </div>

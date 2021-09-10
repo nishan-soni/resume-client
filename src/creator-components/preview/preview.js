@@ -1,13 +1,7 @@
 import './preview.css'
 import Basic from '../images/basic.png'
 import Template1 from '../images/template1.png'
-import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { motion } from 'framer-motion';
-import { FormControl } from '@material-ui/core';
-import { RadioGroup } from '@material-ui/core';
-import { FormControlLabel } from '@material-ui/core';
-import { Radio } from '@material-ui/core';
 import ColorButton from '../color-button/colorbutton';
 
 /*
@@ -20,7 +14,7 @@ import ColorButton from '../color-button/colorbutton';
 */
 
 const Preview = (props) => {
-    //const images = [{basic : {}}, Template1]
+
     const images = [
         {
             img : Basic,
@@ -31,25 +25,7 @@ const Preview = (props) => {
             colors : ['lightgrey']
         }
     ]
-    const {pointer, updatePointer, templates, setSelect, setColor} = props
-
-    const buttonLeft = () => {
-        let newPointer = pointer
-        newPointer--
-        if(newPointer < 0) {
-            newPointer = templates.length - 1
-        }
-        updatePointer(newPointer)
-    }
-
-    const buttonRight = () => {
-        let newPointer = pointer
-        newPointer++
-        if(newPointer > templates.length - 1) {
-            newPointer = 0
-        }
-        updatePointer(newPointer)
-    }
+    const {pointer, setSelect, setColor, selectedColor} = props
 
     return (
         <div>
@@ -60,7 +36,7 @@ const Preview = (props) => {
                     {images[pointer].colors.map((val, index) => {
                         return (
                             //<input name = 'templateColor' type = 'radio' style = {{ fill :'red', height : '5vh', width : '5vh', margin : '0', marginLeft : '0.4vw', marginRight : '0.4vw', marginTop : '1vh', marginBottom : '1vh', backgroundColor : 'crimson'}}/>
-                            <ColorButton color = {images[pointer].colors[index]} setColor = {setColor}/>
+                            <ColorButton color = {images[pointer].colors[index]} setColor = {setColor} selectedColor = {selectedColor}/>
                         )
                     })}            
             </div>

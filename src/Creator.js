@@ -30,7 +30,7 @@ const Creator = () => {
     const templates = ['basic', 'template1']
     const [templatePointer, setTemplatePointer] = useState(0)
     const [templateSelect, setTemplateSelect] = useState(false)
-    const [color, setColor] = useState("")
+    const [color, setColor] = useState("#e85a4f") //default color of template1
 
 
     const processData = () => {
@@ -129,7 +129,7 @@ const Creator = () => {
             <ProjectsContext.Provider value = {{projects, setProjects}}>
               <Projects/>
             </ProjectsContext.Provider>
-            <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates} setSelect = {setTemplateSelect} setColor = {setColor}/>
+            <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates} setSelect = {setTemplateSelect} setColor = {setColor} color = {color}/>
             {loading ? <Load/> : null}
             {templateSelect ? <TemplateSelect setSelect = {setTemplateSelect} templates = {templates} updatePointer = {setTemplatePointer} setColor = {setColor}/> : null}
             <motion.div className = 'landscape-notification' initial = {{opacity : 0}} animate = {{opacity : 1}} transition = {{duration : 0.4}}>
