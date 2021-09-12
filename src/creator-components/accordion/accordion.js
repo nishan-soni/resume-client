@@ -268,7 +268,10 @@ const Accordion = (props) => {
                                     Notes
                                 </Typography>
                                 <Typography className = {CapClasses.root}>
-                                    Add each note on a new line.
+                                    • List accomplishments and describe what you have done.
+                                </Typography>
+                                <Typography className = {CapClasses.root}>
+                                    • Add each note on a new line.
                                 </Typography>
                                 <div style = {{width: "45vw", marginTop: "2vh"}}>
                                     <Editor

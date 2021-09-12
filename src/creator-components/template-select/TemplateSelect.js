@@ -16,7 +16,7 @@ const TemplateSelect = (props) => {
         return () => {
           document.removeEventListener("click", handleClickOutside, false);
         };
-      }, []);
+      });
     
       const handleClickOutside = event => {
         if (selectRef.current && !selectRef.current.contains(event.target)) {

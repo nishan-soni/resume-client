@@ -3,6 +3,7 @@ import { EmploymentContext } from '../../Creator';
 import './employment.css'
 import Accordion from "../accordion/accordion";
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd'
+import Subtitle from '../subtitle/subtitle';
 
 const Employment = () => {
 
@@ -30,6 +31,9 @@ const Employment = () => {
         <div id= 'employment-container'>
             <div className = 'employment-title'>
                 Employment.
+            </div>
+            <div style = {{marginBottom : '1vh'}}>
+                <Subtitle subtitle = 'Include recent work experience and volunteering.'/>
             </div>
             <DragDropContext onDragEnd = {handleDragEnd}>
                 <Droppable droppableId = 'empDrop'>

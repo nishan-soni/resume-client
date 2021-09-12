@@ -50,7 +50,7 @@ const Creator = () => {
         let empTitle = ""
     
         if(employment.length > 0) {
-          empTitle = "Work Experience"
+          empTitle = "Experience"
         }
 
         let newEmployment = {
