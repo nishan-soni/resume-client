@@ -140,9 +140,11 @@ const Accordion = (props) => {
                     >
                         <DeleteIcon style = {{color : 'white'}}/> 
                     </button>
-                    <Typography className = {TypClasses.root}>
-                        {text1}
-                    </Typography>
+                    <div style = {{width : '40vw'}}> 
+                        <Typography className = {TypClasses.root}>
+                            {text1}
+                        </Typography>
+                    </div>
                     <button 
                         className = 'drag-accordion'
                         {...drag}

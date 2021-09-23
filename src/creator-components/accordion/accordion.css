@@ -50,6 +50,8 @@
   border: none;
   right: 0;
   margin-right: 6em;
+  top: 0;
+  bottom: 0;
 }
 
 .drag-accordion:hover {
