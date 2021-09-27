@@ -13,19 +13,22 @@ import TemplateSelect from './creator-components/template-select/TemplateSelect'
 import './Creator.css'
 import RotateDevice from './creator-components/images/rotate-device.png'
 import { motion } from 'framer-motion';
+import Certificates from './creator-components/certificates/certificates';
 
 export const InfoContext = createContext()
 export const EmploymentContext = createContext()
 export const EducationContext = createContext()
 export const SkillsContext = createContext()
 export const ProjectsContext = createContext()
+export const CertificatesContext = createContext()
 
 const Creator = () => {
     const [info, setInfo] = useState({fname : 'First Name', lname: 'Last Name', email : 'Email', phone : ''})
     const [education, setEducation] = useState([{id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date'}])
     const [employment, setEmployment] = useState([{id : Date.now() + 2, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}])
     const [skills, setSkills] = useState([])
-    const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: "", start : 'Start Date', end : 'End Date'}])
+    const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: ""}])
+    const [certificates, setCertificates] = useState([{id : Date.now() + 2, text1 : 'Example Certificate', text2: ""}])
     const [loading, setLoading] = useState(false)
     const templates = ['basic', 'template1']
     const [templatePointer, setTemplatePointer] = useState(0)
@@ -85,12 +88,25 @@ const Creator = () => {
           }
         }
 
-        return [newEducation, newEmployment, newSkills, newProjects]
+        let certTitle = ""
+    
+        if(certificates.length > 0) {
+          certTitle = "Certificates"
+        }
+
+        let newCertificates = {
+          certificates : {
+            title: certTitle,
+            array: [...certificates]
+          }
+        }
+
+        return [newEducation, newEmployment, newSkills, newProjects, newCertificates]
     }
 
 
     const handleDownload = () => {
-      const [newEducation, newEmployment, newSkills, newProjects] = processData()
+      const [newEducation, newEmployment, newSkills, newProjects, newCertificates] = processData()
       setLoading(true)
       const tempURL = templates[templatePointer].toString()
       axios({
@@ -102,6 +118,7 @@ const Creator = () => {
           employment : newEmployment.employment,
           skills : newSkills.skills,
           projects : newProjects.projects,
+          certificates: newCertificates.certificates,
           color : color
         },
         responseType: 'blob'
@@ -129,6 +146,9 @@ const Creator = () => {
             <ProjectsContext.Provider value = {{projects, setProjects}}>
               <Projects/>
             </ProjectsContext.Provider>
+            <CertificatesContext.Provider value = {{certificates, setCertificates}}>
+              <Certificates />
+            </CertificatesContext.Provider>
             <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates} setSelect = {setTemplateSelect} setColor = {setColor} color = {color}/>
             {loading ? <Load/> : null}
             {templateSelect ? <TemplateSelect setSelect = {setTemplateSelect} templates = {templates} updatePointer = {setTemplatePointer} setColor = {setColor}/> : null}
