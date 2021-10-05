@@ -6,15 +6,18 @@
 .title1 {
   font-family: open-sans;
   font-size: 15vw;
-  color: /*#c3a68b*/ #e85a4f;
+  color: #e85a4f;
   position: relative;
+  text-align: center;
 }
 
 .title2 {
   font-family: open-sans;
-  font-size: 15vw;
-  color: #e85a4f;
+  font-size: 4vw;
+  color: #e98074;
   position: relative;
+  text-align: center;
+  margin-bottom: 3vh;
 }
 
 .home-container {

@@ -12,10 +12,10 @@ const Home = () => {
          >
             <div>
                 <div className  ="title1">
-                    Resume
+                    Rezume
                 </div>
                 <div className = "title2">
-                    Creator
+                    A free resume creator.
                 </div>
                 <div style = {{width : 'fit-content', margin : 'auto'}}>
                     <Link to='/creator' className = 'get-started-link'>
