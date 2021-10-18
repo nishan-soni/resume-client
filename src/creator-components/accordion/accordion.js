@@ -296,7 +296,7 @@ const Accordion = (props) => {
                                             }
                                             
                                         }
-                                        editorStyle = {{border : "1px solid white", fontFamily : "Open Sans", color : 'white', backgroundColor: '#F0A69E'}}
+                                        editorStyle = {{minHeight:"10vh", border : "1px solid white", fontFamily : "Open Sans", color : 'white', backgroundColor: '#F0A69E'}}
                                         toolbar={{options: ['textAlign', 'history']}}
                                     /> 
                                 </div>

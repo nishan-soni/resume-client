@@ -26,12 +26,12 @@
 
 .date-from {
   float: left;
-  padding-right: 2vw;
+  padding-right: 3em;
 }
 
 .date-to {
   float: right;
-  padding-left: 2vw;
+  padding-left: 3em;
 }
 
 .delete-accordion {
