@@ -10,25 +10,12 @@ const TemplateSelect = (props) => {
 
     const selectRef = useRef()
 
-    const {setSelect, updatePointer, setColor} = props
-
-    useEffect(() => {
-        document.addEventListener("click", handleClickOutside, false);
-        return () => {
-          document.removeEventListener("click", handleClickOutside, false);
-        };
-      });
-    
-      const handleClickOutside = event => {
-        if (selectRef.current && !selectRef.current.contains(event.target)) {
-          setSelect(false);
-        }
-      };
+    const {setTemplateSelect, updatePointer, setColor} = props
 
     return (
         <motion.div ref = {selectRef} initial = {{opacity : 0}} animate = {{opacity : 1}} transition = {{duration : 0.3}} className = 'template-container'>
             <div style = {{width : '100%', marginBottom : '2vh', paddingTop : '1vh'}}>
-                <button className = "close-templates" onClick= {() => {setSelect(false)}}>
+                <button className = "close-templates" onClick= {() => {setTemplateSelect(false)}}>
                     <CloseIcon fontSize = 'large'/>
                 </button>
             </div>
@@ -37,9 +24,9 @@ const TemplateSelect = (props) => {
             </div>
             <div className = 'templates'>
                 <div style = {{width : 'fit-content', margin :'auto'}}>
-                    <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Basic} onClick= {() => {setSelect(false); updatePointer(0); setColor("#e85a4f")}}/>
-                    <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Template1} onClick= {() => {setSelect(false); updatePointer(1); setColor("lightgrey")}}/>
-                    <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Professional} onClick= {() => {setSelect(false); updatePointer(2); setColor("black")}}/>
+                    <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Basic} onClick= {() => {setTemplateSelect(false); updatePointer(0); setColor("#e85a4f")}}/>
+                    <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Template1} onClick= {() => {setTemplateSelect(false); updatePointer(1); setColor("lightgrey")}}/>
+                    <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Professional} onClick= {() => {setTemplateSelect(false); updatePointer(2); setColor("black")}}/>
                 </div>
             </div>
         </motion.div>

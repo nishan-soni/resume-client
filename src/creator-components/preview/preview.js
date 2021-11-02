@@ -30,12 +30,12 @@ const Preview = (props) => {
             colors : ['black']
         }
     ]
-    const {pointer, setSelect, setColor, selectedColor} = props
+    const {pointer, setTemplateSelect, setColor, selectedColor} = props
 
     return (
         <div>
-            <motion.div whileHover={{ scale: 1.03 }} whileTap = {{scale : 0.95}} style = {{width : 'fit-content', height : 'fit-content', margin: 'auto'}}>
-                <img src = {images[pointer].img} style = {{width : 'auto', height : '50vh', border : 'solid 1.5px #e85a4f'}} onClick = {()=> {setSelect(true)}} alt = ""/>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap = {{scale : 0.95}} style = {{width : 'fit-content', height : 'fit-content', margin: 'auto'}} onClick = {()=> {setTemplateSelect(true)}}>
+                <img src = {images[pointer].img} style = {{width : 'auto', height : '50vh', border : 'solid 1.5px #e85a4f'}}  alt = ""/>
             </motion.div>
             <div style = {{display : 'flex', flexDirection : 'row', width : 'fit-content', height : 'fit-content', margin: 'auto'}}>
                     {images[pointer].colors.map((val, index) => {

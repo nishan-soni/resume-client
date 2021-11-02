@@ -30,9 +30,9 @@ const Creator = () => {
     const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: ""}])
     const [certificates, setCertificates] = useState([{id : Date.now() + 2, text1 : 'Example Certificate', text2: ""}])
     const [loading, setLoading] = useState(false)
+    const [templateSelect, setTemplateSelect] = useState(false)
     const templates = ['basic', 'template1', 'professional']
     const [templatePointer, setTemplatePointer] = useState(0)
-    const [templateSelect, setTemplateSelect] = useState(false)
     const [color, setColor] = useState("")
 
 
@@ -149,9 +149,9 @@ const Creator = () => {
             <CertificatesContext.Provider value = {{certificates, setCertificates}}>
               <Certificates />
             </CertificatesContext.Provider>
-            <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates} setSelect = {setTemplateSelect} setColor = {setColor} color = {color}/>
+            <Download onDownload = {handleDownload} updatePointer = {setTemplatePointer} pointer = {templatePointer} templates = {templates} setTemplateSelect = {setTemplateSelect} setColor = {setColor} color = {color}/>
             {loading ? <Load/> : null}
-            {templateSelect ? <TemplateSelect setSelect = {setTemplateSelect} templates = {templates} updatePointer = {setTemplatePointer} setColor = {setColor}/> : null}
+            {templateSelect ? <TemplateSelect setTemplateSelect = {setTemplateSelect} templates = {templates} updatePointer = {setTemplatePointer} setColor = {setColor}/> : null}
             <motion.div className = 'landscape-notification' initial = {{opacity : 0}} animate = {{opacity : 1}} transition = {{duration : 0.4}}>
               <div style = {{textAlign : 'center'}}>
                   Please rotate your device for a better experience.
