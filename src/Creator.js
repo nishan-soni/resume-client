@@ -30,10 +30,10 @@ const Creator = () => {
     const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: ""}])
     const [certificates, setCertificates] = useState([{id : Date.now() + 2, text1 : 'Example Certificate', text2: ""}])
     const [loading, setLoading] = useState(false)
-    const templates = ['basic', 'template1']
+    const templates = ['basic', 'template1', 'professional']
     const [templatePointer, setTemplatePointer] = useState(0)
     const [templateSelect, setTemplateSelect] = useState(false)
-    const [color, setColor] = useState("#e85a4f") //default color of template1
+    const [color, setColor] = useState("")
 
 
     const processData = () => {

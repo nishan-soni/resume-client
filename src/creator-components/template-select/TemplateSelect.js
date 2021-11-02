@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Basic from '../images/basic.png'
 import Template1 from '../images/template1.png'
 import CloseIcon from '@material-ui/icons/Close';
+import Professional from '../images/professional.png'
 import { useEffect, useRef } from 'react';
 
 const TemplateSelect = (props) => {
@@ -38,7 +39,7 @@ const TemplateSelect = (props) => {
                 <div style = {{width : 'fit-content', margin :'auto'}}>
                     <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Basic} onClick= {() => {setSelect(false); updatePointer(0); setColor("#e85a4f")}}/>
                     <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Template1} onClick= {() => {setSelect(false); updatePointer(1); setColor("lightgrey")}}/>
-
+                    <motion.img whileTap = {{scale : 0.95}} className = 'template-img' src = {Professional} onClick= {() => {setSelect(false); updatePointer(2); setColor("black")}}/>
                 </div>
             </div>
         </motion.div>

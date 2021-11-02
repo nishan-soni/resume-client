@@ -3,6 +3,7 @@ import Basic from '../images/basic.png'
 import Template1 from '../images/template1.png'
 import { motion } from 'framer-motion';
 import ColorButton from '../color-button/colorbutton';
+import Professional from '../images/professional.png'
 
 /*
 <button id = "left-btn" style = {{float : 'left', marginRight : '0.5vw', background: 'none', border : 'none'}} onClick = {buttonLeft}>
@@ -23,6 +24,10 @@ const Preview = (props) => {
         {
             img : Template1,
             colors : ['lightgrey']
+        },
+        {
+            img : Professional,
+            colors : ['black']
         }
     ]
     const {pointer, setSelect, setColor, selectedColor} = props
