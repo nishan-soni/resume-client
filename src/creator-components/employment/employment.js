@@ -11,7 +11,7 @@ const Employment = () => {
 
     const addEmpInput = () => {
         const newEmployment = [...employment]
-        const obj = {id : Date.now() + 1, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}
+        const obj = {id : Date.now() + 1, checked: false, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}
         newEmployment.push(obj)
         setEmployment(newEmployment)
         return obj;
@@ -52,7 +52,7 @@ const Employment = () => {
                                                 {...provided.draggableProps}
                                                 
                                             >
-                                                <Accordion key = {emp.id} text1 = 'New Employment' label1 = 'Job' label2 = 'Location' array = {employment} setArrayState = {setEmployment} id ={emp.id} drag = {{...provided.dragHandleProps}} dateAllow = {true}  controlLabel = 'Currently working here.'/>
+                                                <Accordion key = {emp.id} checked = {emp.checked} text1 = 'New Employment' label1 = 'Job' label2 = 'Location' array = {employment} setArrayState = {setEmployment} id ={emp.id} drag = {{...provided.dragHandleProps}} dateAllow = {true}  controlLabel = 'Currently working here.'/>
                                             </div>
                                         )}
                                     </Draggable>

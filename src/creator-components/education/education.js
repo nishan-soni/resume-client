@@ -11,7 +11,7 @@ const Education = () => {
 
     const addEduInput = () => {
         const newEducation = [...education]
-        const obj = {id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date'}
+        const obj = {id : Date.now() + 1, checked: false, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date'}
         newEducation.push(obj)
         setEducation(newEducation)
         return obj;
@@ -54,7 +54,7 @@ const Education = () => {
                                                 {...provided.draggableProps}
                                                 
                                             >
-                                                <Accordion key = {edu.id} text1 = 'New Education' label1 = 'Degree' label2 = 'University' array = {education} setArrayState = {setEducation} id ={edu.id} drag = {{...provided.dragHandleProps}} dateAllow = {true} controlLabel = 'Currently studying here.'/>
+                                                <Accordion key = {edu.id} checked = {edu.checked} text1 = 'New Education' label1 = 'Degree' label2 = 'University' array = {education} setArrayState = {setEducation} id ={edu.id} drag = {{...provided.dragHandleProps}} dateAllow = {true} controlLabel = 'Currently studying here.'/>
                                             </div>
                                         )}
                                     </Draggable>

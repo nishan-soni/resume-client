@@ -97,6 +97,7 @@ const Accordion = (props) => {
     const [editorState, setEditorState] = React.useState(EditorState.createEmpty())
     const [notes, setNotes] = React.useState([])
     const [endTemp, setEndTemp] = React.useState(months[selectedEndDate.getMonth()].toUpperCase() + " " + selectedEndDate.getFullYear().toString())
+    const [checked, setChecked] = React.useState(props.checked)
 
     const {array, setArrayState, id, drag, controlLabel, dateAllow} = props
 
@@ -158,24 +159,26 @@ const Accordion = (props) => {
 
                     <div className = 'input-container'>
                         <div style = {{float : 'left'}}>
-                            <input 
+                            <input
+                                value = {text1}
                                 className = 'inputs' 
                                 placeholder = {props.label1} 
                                 onChange = {(e) => {
                                     let text1 = e.target.value
                                     setText1(text1)
-                                    handleChange({text1, text2, start, end, notes }, id)
+                                    handleChange({text1, text2, start, end, notes }, id, checked)
                                 }}
                             />
                         </div>
                         <div style = {{float : 'right'}}>
-                            <input 
+                            <input
+                                value = {text2}
                                 className = 'inputs'
                                 placeholder = {props.label2}
                                 onChange = {(e) => {
                                     let text2 = e.target.value
                                     setText2(text2)
-                                    handleChange({text1, text2, start, end, notes }, id)
+                                    handleChange({text1, text2, start, end, notes }, id, checked)
                                 }}
                             />
                         </div>
@@ -204,7 +207,7 @@ const Accordion = (props) => {
                                                     start = ''
                                                 }
                                                 setStart(start)
-                                                handleChange({text1, text2, start, end, notes }, id)
+                                                handleChange({text1, text2, start, end, notes }, id, checked)
                                             }
                                         }
                                     />
@@ -232,7 +235,7 @@ const Accordion = (props) => {
                                                 let end = months[date.getMonth()].toUpperCase() + " " + date.getFullYear().toString()
                                                 setEnd(end)
                                                 setEndTemp(end)
-                                                handleChange({text1, text2, start, end, notes }, id)
+                                                handleChange({text1, text2, start, end, notes }, id, checked)
                                             }
                                         }
                                     />
@@ -247,16 +250,18 @@ const Accordion = (props) => {
                             <div>
                                 <FormControlLabel
                                     control = {
-                                        <Checkbox color="primary" size = 'medium' onChange = {(e)=> {
+                                        <Checkbox checked = {checked} color="primary" size = 'medium' onChange = {(e)=> {
                                             if (e.target.checked) {
                                                 let end = "PRESENT"
                                                 setEnd(end)
-                                                handleChange({text1, text2, start, end, notes }, id)
+                                                handleChange({text1, text2, start, end, notes }, id, checked)
+                                                setChecked(true)
                                             }
                                             else if (!e.target.checked) {
                                                 let end = endTemp
                                                 setEnd(end)
-                                                handleChange({text1, text2, start, end, notes }, id)
+                                                handleChange({text1, text2, start, end, notes }, id, checked)
+                                                setChecked(false)
                                             }
                                         }}/>
                                     }
@@ -291,7 +296,7 @@ const Accordion = (props) => {
                                                     notes = []
                                                 }
                                                 setNotes(notes)
-                                                handleChange({text1, text2, start, end, notes }, id)
+                                                handleChange({text1, text2, start, end, notes }, id, checked)
                                                 
                                             }
                                             
