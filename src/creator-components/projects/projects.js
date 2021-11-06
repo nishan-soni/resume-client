@@ -33,11 +33,11 @@ const Projects = () => {
                 <Droppable droppableId = 'projDrop'>
                     {provided => (
                         <div ref = {provided.innerRef} {...provided.droppableProps}>
-                            {projects.map((proj, index) => {
+                            {projects.map((item, index) => {
                                 return(
                                     <Draggable
-                                        key={`${proj.id}`}
-                                        draggableId={`${proj.id}`}
+                                        key={`${item.id}`}
+                                        draggableId={`${item.id}`}
                                         index={index}
                                     >
                                         {provided => (
@@ -46,7 +46,7 @@ const Projects = () => {
                                                 {...provided.draggableProps}
                                                 
                                             >
-                                                <Accordion key = {proj.id} text1 = 'New Project' label1 = 'Project' label2 = 'Subtitle' array = {projects} setArrayState = {setProjects} id ={proj.id} drag = {{...provided.dragHandleProps}}  controlLabel = 'Currently working on project.'/>
+                                                <Accordion key = {item.id} text1 = {item.text1} text2 = {item.text2} label1 = 'Project' label2 = 'Subtitle' array = {projects} setArrayState = {setProjects} id ={item.id} drag = {{...provided.dragHandleProps}}  controlLabel = 'Currently working on project.'/>
                                             </div>
                                         )}
                                     </Draggable>

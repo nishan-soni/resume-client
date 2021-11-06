@@ -39,11 +39,11 @@ const Employment = () => {
                 <Droppable droppableId = 'empDrop'>
                     {provided => (
                         <div ref = {provided.innerRef} {...provided.droppableProps}>
-                            {employment.map((emp, index) => {
+                            {employment.map((item, index) => {
                                 return(
                                     <Draggable
-                                        key={`${emp.id}`}
-                                        draggableId={`${emp.id}`}
+                                        key={`${item.id}`}
+                                        draggableId={`${item.id}`}
                                         index={index}
                                     >
                                         {provided => (
@@ -52,7 +52,7 @@ const Employment = () => {
                                                 {...provided.draggableProps}
                                                 
                                             >
-                                                <Accordion key = {emp.id} checked = {emp.checked} text1 = 'New Employment' label1 = 'Job' label2 = 'Location' array = {employment} setArrayState = {setEmployment} id ={emp.id} drag = {{...provided.dragHandleProps}} dateAllow = {true}  controlLabel = 'Currently working here.'/>
+                                                <Accordion key = {item.id} checked = {item.checked} text1 = {item.text1} text2 = {item.text2} label1 = 'Job' label2 = 'Location' array = {employment} setArrayState = {setEmployment} id ={item.id} drag = {{...provided.dragHandleProps}} dateAllow = {true}  controlLabel = 'Currently working here.'/>
                                             </div>
                                         )}
                                     </Draggable>

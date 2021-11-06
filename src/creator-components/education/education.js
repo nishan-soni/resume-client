@@ -11,7 +11,7 @@ const Education = () => {
 
     const addEduInput = () => {
         const newEducation = [...education]
-        const obj = {id : Date.now() + 1, checked: false, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date'}
+        const obj = {id : Date.now() + 1, checked: false, text1 : 'Example Education', text2: 'University', start : 'Start Date', end : 'End Date'}
         newEducation.push(obj)
         setEducation(newEducation)
         return obj;
@@ -41,11 +41,11 @@ const Education = () => {
                 <Droppable droppableId = 'eduDrop'>
                     {provided => (
                         <div ref = {provided.innerRef} {...provided.droppableProps}>
-                            {education.map((edu, index) => {
+                            {education.map((item, index) => {
                                 return(
                                     <Draggable
-                                        key={`${edu.id}`}
-                                        draggableId={`${edu.id}`}
+                                        key={`${item.id}`}
+                                        draggableId={`${item.id}`}
                                         index={index}
                                     >
                                         {provided => (
@@ -54,7 +54,7 @@ const Education = () => {
                                                 {...provided.draggableProps}
                                                 
                                             >
-                                                <Accordion key = {edu.id} checked = {edu.checked} text1 = 'New Education' label1 = 'Degree' label2 = 'University' array = {education} setArrayState = {setEducation} id ={edu.id} drag = {{...provided.dragHandleProps}} dateAllow = {true} controlLabel = 'Currently studying here.'/>
+                                                <Accordion key = {item.id} checked = {item.checked} text1 = {item.text1} label1 = 'Degree' text2 = {item.text2} label2 = 'University' array = {education} setArrayState = {setEducation} id ={item.id} drag = {{...provided.dragHandleProps}} dateAllow = {true} controlLabel = 'Currently studying here.'/>
                                             </div>
                                         )}
                                     </Draggable>

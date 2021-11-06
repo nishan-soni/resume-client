@@ -24,9 +24,9 @@ export const CertificatesContext = createContext()
 
 const Creator = () => {
     const [info, setInfo] = useState({fname : 'First Name', lname: 'Last Name', email : 'Email', phone : ''})
-    const [education, setEducation] = useState([{id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date', checked :true}])
+    const [education, setEducation] = useState([{id : Date.now() + 1, text1 : 'Example Education', text2: 'University', start : 'Start Date', end : 'End Date', checked :false}, {id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date', checked :true}])
     const [employment, setEmployment] = useState([{id : Date.now() + 2, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}])
-    const [skills, setSkills] = useState([])
+    const [skills, setSkills] = useState(['Example Skill'])
     const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: ""}])
     const [certificates, setCertificates] = useState([{id : Date.now() + 2, text1 : 'Example Certificate', text2: ""}])
     const [loading, setLoading] = useState(false)
