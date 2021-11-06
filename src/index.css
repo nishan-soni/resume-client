@@ -1,3 +1,8 @@
+@font-face {
+  font-family: open-sans;
+  src: url("fonts/OpenSans-Regular.ttf");
+}
+
 html,
 body {
   background-color: #eae7dc /*#f8f8f8 #fff9d6*/;
