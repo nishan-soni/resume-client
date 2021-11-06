@@ -1,0 +1,32 @@
+
+#education-container {
+  padding-top: 6vh;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
+
+#edu-title {
+  color: #e85a4f;
+  width: fit-content;
+  margin: auto;
+  font-family: open-sans;
+  font-size: 7vw;
+}
+
+.add-edu-btn {
+  margin: auto;
+  width: auto;
+  height: 8vh;
+  margin-top: 2vh;
+  background: none;
+  border: solid 0.8px #e98074;
+  border-radius: 6px;
+  color: #e85a4f;
+  font-family: open-sans;
+  font-size: medium;
+}
+
+.add-edu-btn:hover {
+  cursor: pointer;
+}
