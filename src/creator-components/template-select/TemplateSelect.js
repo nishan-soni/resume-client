@@ -4,7 +4,7 @@ import Basic from '../images/basic.png'
 import Template1 from '../images/template1.png'
 import CloseIcon from '@material-ui/icons/Close';
 import Professional from '../images/professional.png'
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 const TemplateSelect = (props) => {
 

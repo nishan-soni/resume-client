@@ -1,5 +1,5 @@
 import {Route} from 'react-router-dom'
-import Home from './Home';
+import Home from './Home/Home';
 import Creator from './Creator';
 
 const App = () => {
@@ -7,9 +7,7 @@ const App = () => {
     return (
         <div>
             <Route exact path = '/' component = {Home}/>
-            <div>
-                <Route exact path = '/creator' component = {Creator}/>
-            </div>
+            <Route exact path = '/creator' component = {Creator}/>
         </div>
     );
 }
