@@ -3,9 +3,12 @@
   src: url("../fonts/OpenSans-Regular.ttf");
 }
 
+.title-container {
+}
+
 .title1 {
   font-family: open-sans;
-  font-size: 15vw;
+  font-size: 10vw;
   color: #e85a4f;
   position: relative;
   text-align: center;
@@ -44,4 +47,16 @@
   width: auto;
   height: auto;
   text-decoration: none;
+}
+
+.log-in-link {
+  color: #e85a4f;
+  font-family: open-sans;
+  text-decoration: none;
+}
+
+.log-in-div {
+  position: relative;
+  margin: 0 auto;
+  width: fit-content;
 }

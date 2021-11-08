@@ -1,0 +1,8 @@
+#signup-title {
+    font-family: open-sans;
+    font-size: 10vw;
+    color: #e85a4f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
