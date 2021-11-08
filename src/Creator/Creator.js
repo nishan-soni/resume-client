@@ -1,4 +1,4 @@
-import React,{ useState, createContext } from 'react';
+import React,{ useState, createContext, useEffect } from 'react';
 import Personal from './creator-components/personal/personal';
 import Education from './creator-components/education/education';
 import Employment from './creator-components/employment/employment';
@@ -22,18 +22,64 @@ export const SkillsContext = createContext()
 export const ProjectsContext = createContext()
 export const CertificatesContext = createContext()
 
+// NOTE: When setting the id for compoenents one hase to be date.now other has to be date.now+1 so you may need a new way to set ids just for this part
+
 const Creator = () => {
-    const [info, setInfo] = useState({fname : 'First Name', lname: 'Last Name', email : 'Email', phone : ''})
-    const [education, setEducation] = useState([{id : Date.now() + 1, text1 : 'Example Education', text2: 'University', start : 'Start Date', end : 'End Date', checked :false}, {id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date', checked :true}])
-    const [employment, setEmployment] = useState([{id : Date.now() + 2, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date'}])
+
+    const [info, setInfo] = useState({fname : '', lname: '', email : '', phone : ''})
+    const [education, setEducation] = useState([{id : Date.now(), text1 : 'Example Education', text2: '', start : 'Start Date', end : 'End Date', checked :false, notes: []}, {id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date', checked :true, notes: []}])
+    const [employment, setEmployment] = useState([{id : Date.now() + 2, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date', notes: []}])
     const [skills, setSkills] = useState(['Example Skill'])
-    const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: ""}])
-    const [certificates, setCertificates] = useState([{id : Date.now() + 2, text1 : 'Example Certificate', text2: ""}])
+    const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: "", notes: []}])
+    const [certificates, setCertificates] = useState([{id : Date.now() + 2, text1 : 'Example Certificate', text2: "", notes: []}])
     const [loading, setLoading] = useState(false)
     const [templateSelect, setTemplateSelect] = useState(false)
     const templates = ['basic', 'template1', 'professional']
     const [templatePointer, setTemplatePointer] = useState(0)
-    const [color, setColor] = useState("")
+    const [color, setColor] = useState("#e85a4f")
+
+
+    useEffect(() =>{
+      let name = "resumeInfo="
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      let resumeInfoString = ""
+      let cookieExist = false
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+          resumeInfoString = c.substring(name.length, c.length);
+          cookieExist = true
+        }
+      }
+      if(cookieExist) {
+        const resumeInfo = JSON.parse(resumeInfoString)
+        const {info,education,employment,skills,projects,certificates} = resumeInfo
+        setInfo(info)
+        setEducation(education)
+        setEmployment(employment)
+        setSkills(skills)
+        setProjects(projects)
+        setCertificates(certificates)
+      }
+    }, [])
+
+    useEffect(() => {
+      let date = new Date()
+      date.setTime(date.getTime() + 5*24*60*60*1000)
+      let expires = ";expires=" + date.toUTCString()
+      document.cookie = "resumeInfo=" + JSON.stringify({
+        info : info,
+          education : education,
+          employment : employment,
+          skills : skills,
+          projects : projects,
+          certificates: certificates,
+      }) + expires
+    })
 
 
     const processData = () => {

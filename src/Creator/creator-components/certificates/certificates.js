@@ -8,7 +8,7 @@ const Certificates = () => {
     const {certificates, setCertificates} = useContext(CertificatesContext)
     const addCertInput = () => {
         const newCertificates = [...certificates]
-        const obj = {id : Date.now(), text1 : 'Example Certificate', text2: "",}
+        const obj = {id : Date.now(), text1 : 'Example Certificate', text2: "",  notes : []}
         newCertificates.push(obj)
         setCertificates(newCertificates)
         return obj;
@@ -46,7 +46,7 @@ const Certificates = () => {
                                                 {...provided.draggableProps}
                                                 
                                             >
-                                                <Accordion key = {item.id} text1 = {item.text1} text2 = {item.text2} label1 = 'Certificate' label2 = 'Subtitle' array = {certificates} setArrayState = {setCertificates} id ={item.id} drag = {{...provided.dragHandleProps}}  controlLabel = 'Currently working on project.'/>
+                                                <Accordion notes = {item.notes} key = {item.id} text1 = {item.text1} text2 = {item.text2} label1 = 'Certificate' label2 = 'Subtitle' array = {certificates} setArrayState = {setCertificates} id ={item.id} drag = {{...provided.dragHandleProps}}  controlLabel = 'Currently working on project.'/>
                                             </div>
                                         )}
                                     </Draggable>

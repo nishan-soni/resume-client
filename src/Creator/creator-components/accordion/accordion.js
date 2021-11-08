@@ -15,7 +15,7 @@ import {
 } from '@material-ui/pickers';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import {EditorState} from 'draft-js';
+import {ContentState, EditorState} from 'draft-js';
 import {Editor} from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -86,17 +86,24 @@ const DateStyle = makeStyles({
 //textfield background #F0EEE7
 
 const Accordion = (props) => {
+    //Gets notes from cookies and displays them in editor
+    let notesString = ""
+    props.notes.forEach((value, index) => {
+        if(!index+1 === props.notes.length) {
+            notesString += props.notes[index] + ";"
+        }
+        else {
+            notesString += props.notes[index]
+        }
+        
+    })
 
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const [text1, setText1] = useState(props.text1)
     const [text2, setText2] = useState(props.text2)
-    const [selectedStartDate, setSelectedStartDate] = React.useState(new Date());
-    const [start, setStart] = React.useState()
-    const [selectedEndDate, setSelectedEndDate] = React.useState(new Date());
-    const [end, setEnd] = React.useState()
-    const [editorState, setEditorState] = React.useState(EditorState.createEmpty())
+    const [start, setStart] = React.useState(props.start)
+    const [end, setEnd] = React.useState(props.end)
+    const [editorState, setEditorState] = React.useState(EditorState.createWithContent(ContentState.createFromText(notesString, ";")))
     const [notes, setNotes] = React.useState([])
-    const [endTemp, setEndTemp] = React.useState(months[selectedEndDate.getMonth()].toUpperCase() + " " + selectedEndDate.getFullYear().toString())
     const [checked, setChecked] = React.useState(props.checked)
 
     const {array, setArrayState, id, drag, controlLabel, dateAllow} = props
@@ -166,7 +173,7 @@ const Accordion = (props) => {
                                 onChange = {(e) => {
                                     let text1 = e.target.value
                                     setText1(text1)
-                                    handleChange({text1, text2, start, end, notes }, id, checked)
+                                    handleChange({text1, text2, start, end, notes, checked }, id)
                                 }}
                             />
                         </div>
@@ -178,7 +185,7 @@ const Accordion = (props) => {
                                 onChange = {(e) => {
                                     let text2 = e.target.value
                                     setText2(text2)
-                                    handleChange({text1, text2, start, end, notes }, id, checked)
+                                    handleChange({text1, text2, start, end, notes, checked }, id)
                                 }}
                             />
                         </div>
@@ -191,23 +198,16 @@ const Accordion = (props) => {
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <KeyboardDatePicker
                                         margin="normal"
-                                        value={selectedStartDate}
+                                        value={start}
                                         openTo="year"
                                         views={["year", "month"]}
-                                        InputProps = {{className : DateClasses.input, disableUnderline: true}}
+                                        InputProps = {{className : DateClasses.input, disableUnderline: true, readOnly : true}}
                                         className = {DateClasses.datePicker}
                                         onChange = {
                                             (date) => {
-                                                
-                                                let start = ''
-                                                try {
-                                                    setSelectedStartDate(date);
-                                                    start = months[date.getMonth()].toUpperCase() + " " + date.getFullYear().toString()
-                                                } catch(e) {
-                                                    start = ''
-                                                }
+                                                let start = date
                                                 setStart(start)
-                                                handleChange({text1, text2, start, end, notes }, id, checked)
+                                                handleChange({text1, text2, start, end, notes, checked }, id)
                                             }
                                         }
                                     />
@@ -224,18 +224,16 @@ const Accordion = (props) => {
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <KeyboardDatePicker
                                         margin="normal"
-                                        value={selectedEndDate}
+                                        value={end}
                                         openTo="year"
                                         views={["year", "month"]}
-                                        InputProps = {{className : DateClasses.input, disableUnderline: true}}
+                                        InputProps = {{className : DateClasses.input, disableUnderline: true, readOnly : true}}
                                         className = {DateClasses.datePicker}
                                         onChange = {
                                             (date) => {
-                                                setSelectedEndDate(date);
-                                                let end = months[date.getMonth()].toUpperCase() + " " + date.getFullYear().toString()
+                                                let end = date
                                                 setEnd(end)
-                                                setEndTemp(end)
-                                                handleChange({text1, text2, start, end, notes }, id, checked)
+                                                handleChange({text1, text2, start, end, notes, checked }, id)
                                             }
                                         }
                                     />
@@ -252,16 +250,18 @@ const Accordion = (props) => {
                                     control = {
                                         <Checkbox checked = {checked} color="primary" size = 'medium' onChange = {(e)=> {
                                             if (e.target.checked) {
-                                                let end = "PRESENT"
+                                                let end = null
                                                 setEnd(end)
-                                                handleChange({text1, text2, start, end, notes }, id, checked)
-                                                setChecked(true)
+                                                let checked = true
+                                                setChecked(checked)
+                                                handleChange({text1, text2, start, end, notes, checked }, id)
                                             }
                                             else if (!e.target.checked) {
-                                                let end = endTemp
+                                                let end = new Date()
                                                 setEnd(end)
-                                                handleChange({text1, text2, start, end, notes }, id, checked)
-                                                setChecked(false)
+                                                let checked = false
+                                                setChecked(checked)
+                                                handleChange({text1, text2, start, end, notes, checked }, id)
                                             }
                                         }}/>
                                     }
@@ -288,15 +288,11 @@ const Accordion = (props) => {
                                                 setEditorState(e)
                                                 let lines = e.getCurrentContent().getPlainText().toString()
                                                 let notes = lines.split('\n')
-                                                for(let i = 0; i < notes.length; i++) {
-                                                    let temp = notes[i]
-                                                    notes[i] = temp
-                                                }
                                                 if (notes[0] === "") {
                                                     notes = []
                                                 }
                                                 setNotes(notes)
-                                                handleChange({text1, text2, start, end, notes }, id, checked)
+                                                handleChange({text1, text2, start, end, notes, checked }, id)
                                                 
                                             }
                                             

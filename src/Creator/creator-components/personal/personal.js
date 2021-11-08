@@ -18,6 +18,7 @@ const Personal = () => {
             <div className = "personal-container">
                 <div className = "names">
                     <input
+                        value = {info.fname}
                         type="text" 
                         placeholder = "First Name" 
                         onChange = {(e) => {
@@ -28,7 +29,8 @@ const Personal = () => {
                             
                         }}
                     />
-                    <input 
+                    <input
+                        value = {info.lname}
                         type="text" 
                         placeholder = "Last Name" 
                         onChange = {(e) => {
@@ -40,7 +42,8 @@ const Personal = () => {
                     />
                 </div>
                 <div className = "contact">
-                    <input 
+                    <input
+                        value = {info.phone}
                         type="text" 
                         placeholder = "Phone Number" 
                         onChange = {(e) => {
@@ -50,7 +53,8 @@ const Personal = () => {
                             setInfo(infoTemp)
                         }}
                     />
-                    <input 
+                    <input
+                        value = {info.email}
                         type="text" 
                         placeholder = "Email" 
                         onChange = {(e) => {

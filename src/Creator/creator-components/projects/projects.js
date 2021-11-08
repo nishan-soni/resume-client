@@ -8,7 +8,7 @@ const Projects = () => {
     const {projects, setProjects} = useContext(ProjectsContext)
     const addProjInput = () => {
         const newProjects = [...projects]
-        const obj = {id : Date.now(), text1 : 'Example Project', text2: "", start : 'Start Date', end : 'End Date'}
+        const obj = {id : Date.now(), text1 : 'Example Project', text2: "",  notes : []}
         newProjects.push(obj)
         setProjects(newProjects)
         return obj;
@@ -46,7 +46,7 @@ const Projects = () => {
                                                 {...provided.draggableProps}
                                                 
                                             >
-                                                <Accordion key = {item.id} text1 = {item.text1} text2 = {item.text2} label1 = 'Project' label2 = 'Subtitle' array = {projects} setArrayState = {setProjects} id ={item.id} drag = {{...provided.dragHandleProps}}  controlLabel = 'Currently working on project.'/>
+                                                <Accordion notes = {item.notes} key = {item.id} text1 = {item.text1} text2 = {item.text2} label1 = 'Project' label2 = 'Subtitle' array = {projects} setArrayState = {setProjects} id ={item.id} drag = {{...provided.dragHandleProps}}  controlLabel = 'Currently working on project.'/>
                                             </div>
                                         )}
                                     </Draggable>
