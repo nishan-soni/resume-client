@@ -10,8 +10,8 @@
   border: transparent;
   border-radius: 1px;
   border-bottom: solid 3.5px #e85a4f;
-  width: 24vw;
-  height: 10vh;
+  width: 22vw;
+  height: 7vh;
   font-size: 1.8rem;
   background-color: rgba(255, 255, 255, 0.3);
   outline: none;
@@ -26,12 +26,12 @@
 
 .date-from {
   float: left;
-  padding-right: 3em;
+  padding-right: 1.5em;
 }
 
 .date-to {
   float: right;
-  padding-left: 3em;
+  padding-left: 1.5em;
 }
 
 .delete-accordion {
@@ -55,5 +55,5 @@
 }
 
 .drag-accordion:hover {
-  cursor: pointer;
+  cursor: grab;
 }

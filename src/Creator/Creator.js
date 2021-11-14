@@ -27,11 +27,11 @@ export const CertificatesContext = createContext()
 const Creator = () => {
 
     const [info, setInfo] = useState({fname : '', lname: '', email : '', phone : ''})
-    const [education, setEducation] = useState([{id : Date.now(), text1 : 'Example Education', text2: '', start : 'Start Date', end : 'End Date', checked :false, notes: []}, {id : Date.now() + 1, text1 : 'Example Education', text2: 'Location', start : 'Start Date', end : 'End Date', checked :true, notes: []}])
-    const [employment, setEmployment] = useState([{id : Date.now() + 2, text1 : 'Example Employment', text2: 'Location', start : 'Start Date', end : 'End Date', notes: []}])
-    const [skills, setSkills] = useState(['Example Skill'])
-    const [projects, setProjects] = useState([{id : Date.now() + 2, text1 : 'Example Project', text2: "", notes: []}])
-    const [certificates, setCertificates] = useState([{id : Date.now() + 2, text1 : 'Example Certificate', text2: "", notes: []}])
+    const [education, setEducation] = useState([])
+    const [employment, setEmployment] = useState([])
+    const [skills, setSkills] = useState([])
+    const [projects, setProjects] = useState([])
+    const [certificates, setCertificates] = useState([])
     const [loading, setLoading] = useState(false)
     const [templateSelect, setTemplateSelect] = useState(false)
     const templates = ['basic', 'template1', 'professional']

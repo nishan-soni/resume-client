@@ -11,7 +11,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import { createTheme } from '@material-ui/core';
 import {
     MuiPickersUtilsProvider,
-    KeyboardDatePicker,
+    DatePicker
 } from '@material-ui/pickers';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -23,23 +23,25 @@ import DragHandleOutlinedIcon from '@material-ui/icons/DragHandleOutlined';
 
 const AccordianStyle = makeStyles({
     root : {
-        background : '#e85a4f',
-        width : 'fit-content'
-
+        background : 'white',
+        width : 'fit-content',
+        border : '1px solid #e98074',
+        boxShadow: 'none'
     }
 })
 const TypStyle = makeStyles({
     root : {
         fontFamily : [ 'Open Sans' ],
         fontSize : '1.6rem',
-        color : 'white'
+        color : '#e98074',
+        boxShadow: "none"
     }
 })
 
 const CapStyle = makeStyles({
     root : {
         fontFamily : [ 'Open Sans' ],
-        color : 'white',
+        color : '#e98074',
         fontSize : '0.8rem'
     }
 })
@@ -47,7 +49,7 @@ const CapStyle = makeStyles({
 const NotesStyle = makeStyles({
     root : {
         fontFamily : [ 'Open Sans' ],
-        color : 'white',
+        color : '#e98074',
         fontSize : '1.3rem'
     }
 })
@@ -65,13 +67,6 @@ const DateTheme = createTheme({
 			main: '#FFFFFF',
 		},
     },
-    overrides : {
-        MuiSvgIcon: {
-            root: {
-              fill: 'white',
-            },
-        },
-    }
     
 })
 
@@ -79,7 +74,7 @@ const DateStyle = makeStyles({
     input : {
         fontFamily : [ 'Open Sans' ],
         fontSize : '1.2rem',
-        color: 'white',
+        color: '#e98074',
     }
 })
 
@@ -139,14 +134,14 @@ const Accordion = (props) => {
     return (
         <div className = "accordion-container">
             <AccordionMUI className = {AccordianClasses.root}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon style = {{color : 'white'}} fontSize = 'large'/>} >
+                <AccordionSummary expandIcon={<ExpandMoreIcon style = {{fill : '#e98074'}} fontSize = 'large'/>} >
                     <button 
                         onClick = {() => {
                             removeInput(id)
                         }}
                         className = 'delete-accordion'
                     >
-                        <DeleteIcon style = {{color : 'white'}}/> 
+                        <DeleteIcon style = {{fill : '#e98074'}}/> 
                     </button>
                     <div style = {{width : '40vw'}}> 
                         <Typography className = {TypClasses.root}>
@@ -157,14 +152,13 @@ const Accordion = (props) => {
                         className = 'drag-accordion'
                         {...drag}
                     >
-                        <DragHandleOutlinedIcon fontSize = 'large' style = {{color : 'white'}} />
+                        <DragHandleOutlinedIcon fontSize = 'large' style = {{fill : '#e98074'}} />
                     </button>
                     
                 </AccordionSummary>
                 <AccordionDetails>
                     <div>
-
-                    <div className = 'input-container'>
+                    <div className = 'input-container' style = {{display : 'block', overflow: 'auto', height: 'fit-content', width: 'fit-content'}}>
                         <div style = {{float : 'left'}}>
                             <input
                                 value = {text1}
@@ -192,11 +186,12 @@ const Accordion = (props) => {
                     </div>
                         {dateAllow ?  
                         
-                        <div style = {{display : 'block', width : 'fit-content', height : 'fit-content', margin : 'auto'}}>
+                        <div className = "dates" style = {{display : 'block', width : 'fit-content', height : 'fit-content', margin : 'auto', marginTop: '3vh'}}>
                             <div className = "date-from">
                                 <ThemeProvider theme = {DateTheme}>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                    <KeyboardDatePicker
+                                    <DatePicker
+                                        variant="inline"
                                         margin="normal"
                                         value={start}
                                         openTo="year"
@@ -222,7 +217,8 @@ const Accordion = (props) => {
                             <div className = "date-to">
                                 <ThemeProvider theme = {DateTheme}>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                    <KeyboardDatePicker
+                                    <DatePicker
+                                        variant="inline"
                                         margin="normal"
                                         value={end}
                                         openTo="year"
@@ -245,10 +241,10 @@ const Accordion = (props) => {
                                     </Typography>
                                 </div>
                             </div>
-                            <div>
+                            <div className = 'date-current'>
                                 <FormControlLabel
                                     control = {
-                                        <Checkbox checked = {checked} color="primary" size = 'medium' onChange = {(e)=> {
+                                        <Checkbox style ={{color: "#e98074",}} checked = {checked} size = 'medium' onChange = {(e)=> {
                                             if (e.target.checked) {
                                                 let end = null
                                                 setEnd(end)
@@ -297,7 +293,7 @@ const Accordion = (props) => {
                                             }
                                             
                                         }
-                                        editorStyle = {{minHeight:"10vh", border : "1px solid white", fontFamily : "Open Sans", color : 'white', backgroundColor: '#F0A69E'}}
+                                        editorStyle = {{minHeight:"10vh", border : "1px solid lightgrey", fontFamily : "Open Sans", color : 'black', backgroundColor: 'white'}}
                                         toolbar={{options: ['textAlign', 'history']}}
                                     /> 
                                 </div>

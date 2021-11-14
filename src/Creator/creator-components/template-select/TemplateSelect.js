@@ -4,19 +4,16 @@ import Basic from '../images/basic.png'
 import Template1 from '../images/template1.png'
 import CloseIcon from '@material-ui/icons/Close';
 import Professional from '../images/professional.png'
-import { useRef } from 'react';
 
 const TemplateSelect = (props) => {
-
-    const selectRef = useRef()
 
     const {setTemplateSelect, updatePointer, setColor} = props
 
     return (
-        <motion.div ref = {selectRef} initial = {{opacity : 0}} animate = {{opacity : 1}} transition = {{duration : 0.3}} className = 'template-container'>
+        <motion.div initial = {{opacity : 0}} animate = {{opacity : 1}} transition = {{duration : 0.3}} className = 'template-container'>
             <div style = {{width : '100%', marginBottom : '2vh', paddingTop : '1vh'}}>
                 <button className = "close-templates" onClick= {() => {setTemplateSelect(false)}}>
-                    <CloseIcon fontSize = 'large'/>
+                    <CloseIcon fontSize = 'large' style = {{fill : 'white'}}/>
                 </button>
             </div>
             <div className = 'template-title'>

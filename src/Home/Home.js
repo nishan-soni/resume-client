@@ -25,7 +25,7 @@ const Home = () => {
                             whileTap={{ scale: 0.9 }}
                             
                         >
-                            Get Started
+                            Create your Resume
                         </motion.button>
                     </Link>
                 </div>
