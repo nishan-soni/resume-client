@@ -158,7 +158,7 @@ const Accordion = (props) => {
                 </AccordionSummary>
                 <AccordionDetails>
                     <div>
-                    <div className = 'input-container' style = {{display : 'block', overflow: 'auto', height: 'fit-content', width: 'fit-content'}}>
+                    <div className = 'input-container' style = {{display : 'block', overflow: 'auto', height: 'fit-content', width: 'fit-content', marginBottom : '0.5vh'}}>
                         <div style = {{float : 'left'}}>
                             <input
                                 value = {text1}
