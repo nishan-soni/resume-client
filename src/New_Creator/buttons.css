@@ -1,0 +1,13 @@
+.add_button {
+    border: none;
+    background: none;
+    color : grey;
+    border: 1.3px solid lightgray;
+    border-radius: 4%;
+    font-size: 1.1em;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1%;
+    cursor: pointer;
+}

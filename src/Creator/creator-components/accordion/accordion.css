@@ -1,0 +1,60 @@
+.accordion-container {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  padding-bottom: 1vh;
+}
+
+.inputs {
+  font-family: open-sans;
+  border: transparent;
+  border-radius: 1px;
+  border-bottom: solid 3.5px black;
+  width: 7em;
+  height: 7vh;
+  font-size: 1.8rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+  color: black;
+  margin-right: 1vw;
+}
+
+.input-container {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
+
+.date-from {
+  float: left;
+  padding-right: 1.5em;
+}
+
+.date-to {
+  float: right;
+  padding-left: 1.5em;
+}
+
+.delete-accordion {
+  background: transparent;
+  border: none;
+  margin-right: 3em;
+}
+
+.delete-accordion:hover {
+  cursor: pointer;
+}
+
+.drag-accordion {
+  position: absolute;
+  background: transparent;
+  border: none;
+  right: 0;
+  margin-right: 6em;
+  top: 0;
+  bottom: 0;
+}
+
+.drag-accordion:hover {
+  cursor: grab;
+}

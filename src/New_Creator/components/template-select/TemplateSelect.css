@@ -1,0 +1,60 @@
+/*@font-face {
+    font-family: open-sans;
+    src: url("../../fonts/OpenSans-Regular.ttf");
+}*/
+
+.template-container {
+    min-width: 40%;
+    min-height: 40%;
+    max-width: 60%;
+    max-height: 60%;
+    background-color: white;
+    border: 1.5px solid lightgrey;
+    z-index: 400;
+    position: fixed;
+    border-radius: 0.5vw;
+    padding-right: 2vw;
+    padding-bottom: 6vh;
+    padding-left: 2vw;
+    overflow-y: scroll;
+}
+
+.images_div {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.template-img {
+    width : auto;
+    height : 40vh;
+    margin-right: 0.5vw;
+    margin-left: 0.5vw;
+    margin-bottom: 2vh;
+    border: 1px solid gray;
+}
+
+.template-title {
+    font-family: open-sans;
+    font-size: 2.5em;
+    padding-bottom: 2vh;
+    color: grey;
+    width: fit-content;
+    margin: auto;
+}
+
+.template-img:hover {
+    cursor: pointer;
+}
+
+.close-templates {
+    background: none;
+    border : none;
+    position: absolute;
+    right: 0;
+}
+
+.close-templates:hover {
+    cursor: pointer;
+}

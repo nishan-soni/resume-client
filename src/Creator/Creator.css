@@ -1,0 +1,27 @@
+.landscape-notification {
+    display: none;
+}
+
+@media screen and (orientation: portrait) {
+    .landscape-notification {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        width: 98vw;
+        height: 98vh;
+        background-color: red;
+        z-index: 150;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: #e85a4f;
+        align-items: center;
+        justify-content: center;
+        font-family: open-sans;
+        color: white;
+        font-size: 1.3em;
+    }
+}
+
+
+

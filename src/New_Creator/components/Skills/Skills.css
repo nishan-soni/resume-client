@@ -1,0 +1,20 @@
+.Skills_div {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 65%;
+    width: auto;
+    margin: auto;
+}
+
+.Skills_input {
+    height: 8vh;
+    width: auto;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    font-size: 1.7em;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    text-align: center;
+}

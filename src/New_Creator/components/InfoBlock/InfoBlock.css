@@ -1,0 +1,15 @@
+.InfoBlock_div {
+    width: 70%;
+    min-height: 10vh;
+    border: 1px solid lightgray;
+    color: black;
+    cursor: pointer;
+    margin-top: 0.5%;
+    font-family: open-sans;
+    border-radius: 3px;
+}
+
+.Date_div {
+    font-size: 1.1em;
+    margin-bottom: 1%;
+}

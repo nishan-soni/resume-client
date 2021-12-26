@@ -1,0 +1,17 @@
+#Creator_div {
+    height: 100vh;
+    width: 100vw;
+}
+
+#SideBar_div {
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+}
+
+#Canvas_div {
+    display: inline-block;
+    width: 80%;
+    height: 100%;
+    position: fixed;
+}

@@ -1,0 +1,21 @@
+.SideBar {
+    height: 100%;
+    width: inherit;
+    background-color: black;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.title_link {
+    color: white;
+    height: fit-content;
+    margin: auto;
+    font-size: 1.2em;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
