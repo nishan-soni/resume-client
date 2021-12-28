@@ -15,3 +15,35 @@
     height: 100%;
     position: fixed;
 }
+
+.open-menu-button {
+    display: none;
+    background: transparent;
+    border: none;
+    color: black;
+    font-size: 2.2em;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 768px) {
+    #SideBar_div {
+        display: none;
+    }
+    #Canvas_div {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+    }
+    @media screen and (max-width: 640px) {
+        .open-menu-button {
+            display: block;
+            position: absolute;
+            left: 0;
+            padding: 0;
+            padding-left: 2%;
+            padding-right: 2%;
+            z-index: 2;
+        }
+    }
+    
+}

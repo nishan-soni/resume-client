@@ -35,3 +35,19 @@
     width: 100%;
     overflow-y: scroll;
 }
+
+@media screen and (max-width: 768px) {
+    .personal_title {
+        font-size: x-large;
+    }
+    .names_div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .personal_input {
+        width: fit-content;
+        margin: auto;
+    }
+    
+}

@@ -1,0 +1,13 @@
+.preview-img {
+    width : auto;
+    height : 60vh;
+    border : solid 1px lightgrey;
+}
+
+@media screen and (max-width: 768px) {
+    .preview-img {
+        height: 350px;
+        width: auto;
+    }
+    
+}

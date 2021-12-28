@@ -18,7 +18,7 @@ textarea:focus, input:focus{
 }
 
 .Editor_input {
-    height: 8vh;
+    height: auto;
     width: auto;
     margin-left: 1vw;
     margin-right: 1vw;
@@ -96,4 +96,33 @@ textarea:focus, input:focus{
     width: fit-content;
     margin: auto;
     margin-top: 4%;
+}
+
+@media screen and (max-width: 640px) {
+    .Editor_parent {
+        justify-content: center;
+    }
+
+    .Inputs_div {
+        flex-direction: column;
+    }    
+
+    .Datepicker_div {
+        flex-direction: column;
+    }
+
+    .End_div {
+        margin: 0;
+    }
+
+    .Start_div {
+        margin: 0;
+    }
+    .text_editor {
+       width: 80%;
+       margin-top: 0
+    }
+    .ql-editor {
+        min-height: 20%;
+    }
 }

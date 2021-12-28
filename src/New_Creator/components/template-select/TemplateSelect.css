@@ -42,6 +42,7 @@
     color: grey;
     width: fit-content;
     margin: auto;
+    text-align: center;
 }
 
 .template-img:hover {
@@ -57,4 +58,11 @@
 
 .close-templates:hover {
     cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+    .template-container {
+        min-width: 65%;
+        max-width: 65%;
+    }
 }

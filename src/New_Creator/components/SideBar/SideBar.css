@@ -19,3 +19,10 @@
     background: none;
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+    .title_link {
+        font-size: large;
+    }
+    
+}

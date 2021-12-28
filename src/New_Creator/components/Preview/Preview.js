@@ -1,4 +1,4 @@
-//import './preview.css'
+import './Preview.css'
 import Basic from '../Images/basic.png'
 import Professional from '../Images/professional.png'
 import ColorButton from '../color-button/colorbutton'
@@ -22,7 +22,7 @@ const Preview = (props) => {
     return (
         <div style = {{marginTop : '1%'}}>
             <motion.div whileHover={{ scale: 1.01 }} whileTap = {{scale : 0.95}} style = {{width : 'fit-content', height : 'fit-content', margin: 'auto', cursor: 'pointer'}} onClick={() => {setTemplateSelect(true)}}>
-                <img src = {templates[template.name].img} style = {{width : 'auto', height : '62vh', border : 'solid 1px lightgrey'}}  alt = ""/>
+                <img src = {templates[template.name].img} className='preview-img'  alt = ""/>
             </motion.div>
             <div style = {{display : 'flex', flexDirection : 'row', width : 'fit-content', height : 'fit-content', margin: 'auto'}}>
                     {templates[template.name].colors.map((val, index) => {

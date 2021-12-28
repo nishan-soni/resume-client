@@ -48,3 +48,13 @@
     padding-top: 1%;
     margin-right: 3%;
 }
+
+@media screen and (max-width: 640px) {
+    .Popup_parent {
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        width: 65%;
+        transform: translate(-50%,-50%);
+    }
+}
