@@ -1,7 +1,7 @@
 import {Route} from 'react-router-dom'
-import Home from './Home/Home';
-import Creator from './New_Creator/Creator';
-import Signup from './Signup/Signup';
+import Home from './pages/Home/Home';
+import Creator from './pages/Creator/Creator';
+import Signup from './pages/Signup/Signup';
 
 const App = () => {
     return (
