@@ -17,7 +17,7 @@ const Home = () => {
                 <div className = "title2">
                     A free resume creator.
                 </div>
-                <div style = {{width : 'fit-content', margin : 'auto', position: 'absolute', top: '0', right:'0', marginRight:'1.8em', marginTop:'1.8em'}}>
+                <div className="open-btn-div">
                     <Link to='/creator' className = 'get-started-link'>
                         <motion.button
                             className = 'get-started-btn'

@@ -22,6 +22,16 @@
   align-items: center;
 }
 
+.open-btn-div {
+  width : fit-content;
+  margin : auto; 
+  position: absolute; 
+  top: 0;
+  right: 0; 
+  margin-right:1.8em;
+  margin-top:1.8em;
+}
+
 .get-started-btn {
   width: auto;
   height: 10vh;
@@ -54,4 +64,18 @@
   position: relative;
   margin: 0 auto;
   width: fit-content;
+}
+
+@media screen and (max-width: 768px) {
+  .open-btn-div {
+    position: relative;
+    margin-top: 0;
+    margin-right: 0;
+  }
+  .get-started-btn {
+    height: 15%;
+    padding-bottom: 4%;
+    padding-top: 4%;
+  }
+  
 }
