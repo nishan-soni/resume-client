@@ -7,7 +7,9 @@ import { editSelectedTemplate } from '../../redux/actions/actions.js'
 import '../../helpers/buttons.css'
 import { useState } from 'react'
 import TemplateSelect from '../TemplateSelect/TemplateSelect.js'
+import LoadingIcon from '../Images/loadingicon.gif'
 const Save = () => {
+    const [loading, setLoading] = useState(false)
     const template = useSelector(state => state.template)
     const updateTemplate = (name, color) => {
         store.dispatch(editSelectedTemplate({
@@ -25,10 +27,11 @@ const Save = () => {
             </div>
             <div className='export_items'>
                 <Preview template = {template} updateTemplate = {updateTemplate} setTemplateSelect = {setTemplateSelect}/>
-                <button className='add_button' onClick = {() => {saveResume(template.name, template.color)}}>
+                <button className='add_button' onClick = {() => {saveResume(template.name, template.color, setLoading)}}>
                     Download
                 </button>
                 {templateSelect === true ? <TemplateSelect updateTemplate = {updateTemplate} setTemplateSelect = {setTemplateSelect}/> : null}
+                {loading === true ? <img className='loading-img' alt = "Loading" src = {LoadingIcon}/> : null}
             </div>
         </div>
     )

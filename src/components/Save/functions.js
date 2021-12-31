@@ -2,7 +2,7 @@ import store from '../../redux/store/store'
 import axios from 'axios'
 import fileDownload from 'js-file-download'
 
-export function saveResume(templateName, color) {
+export function saveResume(templateName, color, setLoading) {
     let data = store.getState()
     let {personal, education, experience, projects, skills} = data
     let educationTitle, experienceTitle, projectsTitle, skillsTitle = ""
@@ -34,6 +34,7 @@ export function saveResume(templateName, color) {
         title : skillsTitle,
         array : skills
     }
+    setLoading(true)
     axios({
         url : `https://resume-e.herokuapp.com/create/${templateName.toLowerCase()}`,
         method: 'POST',
@@ -47,6 +48,7 @@ export function saveResume(templateName, color) {
         },
         responseType: 'blob'
       }).then(response => {
+        setLoading(false)
         fileDownload(response.data, 'resume.pdf')
     })
 }

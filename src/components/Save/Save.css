@@ -20,6 +20,12 @@
     justify-content: center;
 }
 
+.loading-img {
+    position: fixed;
+    z-index: 3;
+    text-align: center;
+}
+
 @media screen and (max-width: 768px) {
     .Save_title {
         font-size: x-large;
