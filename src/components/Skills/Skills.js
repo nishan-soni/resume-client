@@ -46,7 +46,7 @@ const Skills = (props) => {
                  />
             </div>
             <div style = {{width: 'fit-content', margin: 'auto', marginTop : '1%'}}>
-                <button className='add_button' style = {{fontSize : '1.4em'}} onClick={() => {store.dispatch(addSkill(inputValue)); setInputValue("")}}>
+                <button className='add_button' onClick={() => {store.dispatch(addSkill(inputValue)); setInputValue("")}}>
                     Add Skill
                 </button>
             </div>

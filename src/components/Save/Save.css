@@ -32,3 +32,9 @@
     }
     
 }
+
+@media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+    .export_items {
+        justify-content: unset;
+    }
+}
