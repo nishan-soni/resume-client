@@ -30,9 +30,6 @@ const DateTheme = createTheme({
 })
 
 const Editor = (props) => {
-    /*
-    Give the checkbox option for certificates and projects but not education and employment
-    */
     const {setShowEditor, editFunction, editedItem, removeFunction} = props
     const [title, setTitle] = useState(editedItem.title)
     const [subtitle, setSubtitle] = useState(editedItem.subtitle)

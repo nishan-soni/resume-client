@@ -21,7 +21,7 @@ const Experience = (props) => {
                     Experience
                 </div>
                 <div className="Section_subtitle">
-                    <h3>Include recent employment and experience.</h3>
+                    <h3>Include recent employment and other experience.</h3>
                 </div>
                 <div className='Info_div'>
                     {experience.map(element => {

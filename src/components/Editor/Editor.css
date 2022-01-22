@@ -126,3 +126,10 @@ textarea:focus, input:focus{
         min-height: 20%;
     }
 }
+
+@media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+    .Editor_parent {
+        justify-content: unset;
+    }
+}
+    
