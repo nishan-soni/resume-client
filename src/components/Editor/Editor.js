@@ -2,7 +2,6 @@ import { useState } from "react"
 import './Editor.css'
 import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers"
 import DateFnsUtils from '@date-io/date-fns';
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import ReactQuill from "react-quill"
 import 'react-quill/dist/quill.snow.css'
 import { ThemeProvider } from '@material-ui/styles';
