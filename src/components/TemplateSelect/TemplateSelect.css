@@ -10,7 +10,7 @@
     max-height: 60%;
     background-color: white;
     border: 1.5px solid lightgrey;
-    z-index: 400;
+    z-index: 1;
     position: fixed;
     border-radius: 0.5vw;
     padding-right: 2vw;
